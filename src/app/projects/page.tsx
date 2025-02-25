@@ -3,13 +3,16 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import RootLayout from "@/components/layout"
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-ngo-dark text-ngo-light">
+    <RootLayout>
+      <div className="min-h-screen bg-ngo-dark text-ngo-light">
       <HeroSection />
       <ProjectsGrid />
     </div>
+    </RootLayout>
   )
 }
 
@@ -22,7 +25,7 @@ const HeroSection = () => (
       className="absolute inset-0 z-0"
     >
       <Image
-        src="/hero.jpeg"
+        src="hero.jpeg"
         alt="Projects hero background"
         layout="fill"
         objectFit="cover"
@@ -55,31 +58,31 @@ const ProjectsGrid = () => {
     {
       title: "Clean Water Initiative",
       category: "Environment",
-      image: "/edu.jpg",
+      image: "/youth.jpeg",
       description: "Providing clean water to communities in need.",
     },
     {
       title: "Education for All",
       category: "Education",
-      image: "/educ.jpeg",
+      image: "/youth.jpeg",
       description: "Ensuring access to quality education for underprivileged children.",
     },
     {
       title: "Healthcare Outreach",
       category: "Healthcare",
-      image: "/health.jpeg",
+      image: "/youth.jpeg",
       description: "Bringing medical care to remote areas.",
     },
     {
       title: "Sustainable Agriculture",
       category: "Environment",
-      image: "/agri.jpeg",
+      image: "/youth.jpeg",
       description: "Promoting eco-friendly farming practices.",
     },
     {
       title: "Women Empowerment",
       category: "Social",
-      image: "/wmn.jpeg",
+      image: "/youth.jpeg",
       description: "Supporting women through education and entrepreneurship.",
     },
     {
