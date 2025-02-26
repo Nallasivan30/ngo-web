@@ -2,40 +2,30 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import RootLayout from "@/components/layout"
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-ngo-dark text-ngo-light">
+    <RootLayout>
+      <div className="min-h-screen bg-background">
       <HeroSection />
       <OurStorySection />
       <TeamSection />
       <ValuesSection />
     </div>
+    </RootLayout>
   )
 }
 
 const HeroSection = () => (
-  <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="absolute inset-0 z-0"
-    >
-      <Image
-        src="https://sjc.microlink.io/f_KiOXj96La8-w7mLa0j4tof7kVrKUzGNPU7mDt6vqbQx9LfFcLIMBDs1rdxqej4AkP7UYtK8sjtfzDyB23kzA.jpeg"
-        alt="About hero background"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-      />
-    </motion.div>
+  <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-primary">
     <div className="relative z-10 text-center">
       <motion.h1
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="text-5xl md:text-7xl font-bold mb-4 text-shadow"
+        className="text-5xl md:text-7xl font-bold mb-4 text-primary-foreground"
       >
         About Us
       </motion.h1>
@@ -43,7 +33,7 @@ const HeroSection = () => (
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xl md:text-2xl text-shadow"
+        className="text-xl md:text-2xl text-primary-foreground"
       >
         Dedicated to making a difference in the world
       </motion.p>
@@ -52,7 +42,7 @@ const HeroSection = () => (
 )
 
 const OurStorySection = () => (
-  <section className="py-20 bg-ngo-light text-ngo-dark">
+  <section className="py-20 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -61,8 +51,8 @@ const OurStorySection = () => (
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl font-extrabold sm:text-4xl mb-4">Our Story</h2>
-        <p className="mt-4 text-xl max-w-2xl mx-auto">
+        <h2 className="text-3xl font-extrabold sm:text-4xl mb-4 text-foreground">Our Story</h2>
+        <p className="mt-4 text-xl max-w-2xl mx-auto text-muted-foreground">
           From humble beginnings to a global force for change, our journey has been one of passion and perseverance.
         </p>
       </motion.div>
@@ -73,7 +63,7 @@ const OurStorySection = () => (
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Image src="/our-story.jpg" alt="Our story" width={600} height={400} className="rounded-lg shadow-lg" />
+          <Image src="/agri.jpeg" alt="Our story" width={600} height={400} className="rounded-lg shadow-lg" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -81,13 +71,13 @@ const OurStorySection = () => (
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <p className="text-lg mb-4">
+          <p className="text-lg mb-4 text-foreground">
             Founded in 2005, our NGO started with a simple idea: to make a positive impact on the world. What began as a
             small group of dedicated volunteers has grown into a global organization with a presence in over 50
             countries.
           </p>
-          <p className="text-lg">
-            Through the years, we have faced challenges, celebrated victories, and learned valuable lessons. But our core
+          <p className="text-lg text-foreground">
+            Through the years, we've faced challenges, celebrated victories, and learned valuable lessons. But our core
             mission has remained the same: to create a world where everyone has access to education, healthcare, and a
             clean environment.
           </p>
@@ -98,22 +88,22 @@ const OurStorySection = () => (
 )
 
 const TeamSection = () => (
-  <section className="py-20 bg-gradient">
+  <section className="py-20 bg-secondary">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-3xl font-extrabold text-ngo-light sm:text-4xl mb-12 text-center"
+        className="text-3xl font-extrabold sm:text-4xl mb-12 text-center text-secondary-foreground"
       >
         Our Team
       </motion.h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
-          { name: "Jane Doe", role: "Executive Director", image: "/team-member-1.jpg" },
-          { name: "John Smith", role: "Operations Manager", image: "/team-member-2.jpg" },
-          { name: "Emily Brown", role: "Program Coordinator", image: "/team-member-3.jpg" },
+          { name: "Jane Doe", role: "Executive Director" },
+          { name: "John Smith", role: "Operations Manager" },
+          { name: "Emily Brown", role: "Program Coordinator" },
         ].map((member, index) => (
           <motion.div
             key={member.name}
@@ -121,19 +111,22 @@ const TeamSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="bg-ngo-light rounded-lg shadow-lg overflow-hidden hover-scale"
           >
-            <Image
-              src={member.image || "/placeholder.svg"}
-              alt={member.name}
-              width={400}
-              height={400}
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2 text-ngo-dark">{member.name}</h3>
-              <p className="text-gray-600">{member.role}</p>
-            </div>
+            <Card className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <Image
+                  src="/edu.jpeg"
+                  alt={member.name}
+                  width={400}
+                  height={400}
+                  className="w-full h-64 object-cover rounded-t-lg"
+                />
+              </CardHeader>
+              <CardContent>
+                <CardTitle className="text-xl font-semibold mb-2">{member.name}</CardTitle>
+                <p className="text-muted-foreground">{member.role}</p>
+              </CardContent>
+            </Card>
           </motion.div>
         ))}
       </div>
@@ -142,14 +135,14 @@ const TeamSection = () => (
 )
 
 const ValuesSection = () => (
-  <section className="py-20 bg-ngo-light text-ngo-dark">
+  <section className="py-20 bg-background">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-3xl font-extrabold sm:text-4xl mb-12 text-center"
+        className="text-3xl font-extrabold sm:text-4xl mb-12 text-center text-foreground"
       >
         Our Values
       </motion.h2>
@@ -167,8 +160,8 @@ const ValuesSection = () => (
             viewport={{ once: true }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold mb-4 text-ngo-accent">{value.title}</h3>
-            <p className="text-lg">{value.description}</p>
+            <h3 className="text-2xl font-bold mb-4 text-primary">{value.title}</h3>
+            <p className="text-lg text-muted-foreground">{value.description}</p>
           </motion.div>
         ))}
       </div>
