@@ -4,13 +4,16 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import RootLayout from "@/components/layout"
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-ngo-dark text-ngo-light">
+    <RootLayout>
+      <div className="min-h-screen bg-ngo-dark text-ngo-light">
       <HeroSection />
       <ContactForm />
     </div>
+    </RootLayout>
   )
 }
 
