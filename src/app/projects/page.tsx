@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedCard } from "@/components/animated-card"
 import { Loading } from "@/components/loading"
-import { ArrowRight, Leaf, Droplets, Sun, Users } from "lucide-react"
+import { ArrowRight, BookOpen, HeartPulse, Lightbulb, HandHeart, Users } from "lucide-react"
 import RootLayout from "@/components/layout"
 
 export default function Projects() {
@@ -23,12 +23,12 @@ export default function Projects() {
   return (
     <RootLayout>
       <div className="overflow-hidden">
-      <HeroSection />
-      <ProjectsSection />
-      <FeaturedProjectSection />
-      <ImpactSection />
-      <GetInvolvedSection />
-    </div>
+        <HeroSection />
+        <ProjectsSection />
+        <FeaturedProjectSection />
+        <ImpactSection />
+        <GetInvolvedSection />
+      </div>
     </RootLayout>
   )
 }
@@ -36,7 +36,7 @@ export default function Projects() {
 const HeroSection = () => (
   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-primary">
     <div className="absolute inset-0 z-0">
-      <Image src="/placeholder.svg" alt="Projects hero background" fill className="object-cover opacity-20" priority />
+      <Image src="/flds.jpg" alt="Projects hero background" fill className="object-cover opacity-80" priority />
     </div>
     <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
       <motion.h1
@@ -53,7 +53,7 @@ const HeroSection = () => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-xl max-w-2xl mx-auto"
       >
-        Discover how we're making a difference through innovative and sustainable initiatives
+        Empowering communities through education, healthcare, and sustainable development
       </motion.p>
     </div>
   </section>
@@ -62,68 +62,54 @@ const HeroSection = () => (
 const ProjectsSection = () => {
   const categories = [
     { value: "all", label: "All Projects" },
-    { value: "reforestation", label: "Reforestation" },
-    { value: "water", label: "Clean Water" },
-    { value: "energy", label: "Renewable Energy" },
     { value: "education", label: "Education" },
+    { value: "healthcare", label: "Healthcare" },
+    { value: "livelihood", label: "Livelihood" },
+    { value: "community", label: "Community Development" },
   ]
 
   const projects = [
     {
-      title: "Amazon Reforestation",
-      category: "reforestation",
-      description: "Restoring degraded forest areas in the Amazon rainforest.",
-      image: "/placeholder.svg",
-      icon: <Leaf className="h-5 w-5" />,
-    },
-    {
-      title: "Clean Water for Ghana",
-      category: "water",
-      description: "Providing clean water solutions to rural communities in Ghana.",
-      image: "/placeholder.svg",
-      icon: <Droplets className="h-5 w-5" />,
-    },
-    {
-      title: "Solar for Schools",
-      category: "energy",
-      description: "Installing solar panels in schools across developing countries.",
-      image: "/placeholder.svg",
-      icon: <Sun className="h-5 w-5" />,
-    },
-    {
-      title: "Environmental Education",
+      title: "Girls' Education Program",
       category: "education",
-      description: "Teaching sustainable practices to schools and communities.",
-      image: "/placeholder.svg",
-      icon: <Users className="h-5 w-5" />,
+      description: "Providing quality education and scholarships to underprivileged girls.",
+      image: "/edu.jpg",
+      icon: <BookOpen className="h-5 w-5" />,
     },
     {
-      title: "Mangrove Restoration",
-      category: "reforestation",
-      description: "Restoring mangrove ecosystems in coastal areas.",
-      image: "/placeholder.svg",
-      icon: <Leaf className="h-5 w-5" />,
+      title: "Women's Livelihood Program",
+      category: "livelihood",
+      description: "Empowering women through vocational training and microfinance.",
+      image: "/wmn.jpeg",
+      icon: <Lightbulb className="h-5 w-5" />,
     },
     {
-      title: "Clean Water Technology",
-      category: "water",
-      description: "Developing innovative water purification technologies.",
-      image: "/placeholder.svg",
-      icon: <Droplets className="h-5 w-5" />,
+      title: "Community Sanitation Drive",
+      category: "community",
+      description: "Improving sanitation and hygiene in rural communities.",
+      image: "/pplbg.jpg",
+      icon: <HandHeart className="h-5 w-5" />,
     },
     {
-      title: "Wind Energy Initiative",
-      category: "energy",
-      description: "Implementing wind energy solutions in rural communities.",
-      image: "/placeholder.svg",
-      icon: <Sun className="h-5 w-5" />,
-    },
-    {
-      title: "Youth Environmental Leaders",
+      title: "Digital Literacy Initiative",
       category: "education",
-      description: "Training the next generation of environmental advocates.",
-      image: "/placeholder.svg",
-      icon: <Users className="h-5 w-5" />,
+      description: "Teaching digital skills to youth in rural areas.",
+      image: "/cnf.jpg",
+      icon: <BookOpen className="h-5 w-5" />,
+    },
+    {
+      title: "Maternal Health Program",
+      category: "healthcare",
+      description: "Providing prenatal and postnatal care to mothers in need.",
+      image: "/edu.jpg",
+      icon: <HeartPulse className="h-5 w-5" />,
+    },
+    {
+      title: "Youth Leadership Program",
+      category: "community",
+      description: "Empowering youth to become community leaders.",
+      image: "/sdwyth.jpg",
+      icon: <HandHeart className="h-5 w-5" />,
     },
   ]
 
@@ -152,13 +138,15 @@ const ProjectsSection = () => {
         </div>
 
         <Tabs defaultValue="all" className="w-full">
-          <TabsList className="flex flex-wrap justify-center mb-8">
+          <div className="flex flex-wrap justify-center">
+          <TabsList className="w-[auto] flex flex-wrap justify-center mb-8 ">
             {categories.map((category) => (
-              <TabsTrigger key={category.value} value={category.value} className="m-1">
+              <TabsTrigger key={category.value} value={category.value} className="m-1 mb-4">
                 {category.label}
               </TabsTrigger>
             ))}
           </TabsList>
+          </div>
           {categories.map((category) => (
             <TabsContent key={category.value} value={category.value} className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -214,7 +202,7 @@ const FeaturedProjectSection = () => (
           viewport={{ once: true }}
           className="relative h-[400px] rounded-lg overflow-hidden"
         >
-          <Image src="/placeholder.svg" alt="Featured project" fill className="object-cover" />
+          <Image src="/bwg.jpg" alt="Featured project" fill className="object-cover" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -225,16 +213,12 @@ const FeaturedProjectSection = () => (
           <div className="inline-block px-4 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
             Featured Project
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">The Great Green Wall Initiative</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Girls&apos; Education Program</h2>
           <p className="text-muted-foreground mb-4">
-            The Great Green Wall is an African-led movement with an epic ambition to grow an 8,000km natural wonder of
-            the world across the entire width of Africa. A decade in and roughly 15% complete, the initiative is already
-            bringing life back to Africa's degraded landscapes at an unprecedented scale.
+            Our Girls&apos; Education Program is transforming lives by providing access to quality education for underprivileged girls. Through scholarships, mentorship, and community engagement, we&apos;re breaking barriers and creating opportunities for a brighter future.
           </p>
           <p className="text-muted-foreground mb-6">
-            Once complete, the Great Green Wall will be the largest living structure on the planet, 3 times the size of
-            the Great Barrier Reef. EcoImpact is proud to be a partner in this transformative project, contributing to
-            reforestation efforts and community engagement.
+            Since its inception, the program has supported over 10,000 girls, helping them complete their education and pursue their dreams. Join us in empowering the next generation of leaders.
           </p>
           <Button className="button-ripple">
             Learn More About This Project
@@ -248,10 +232,10 @@ const FeaturedProjectSection = () => (
 
 const ImpactSection = () => {
   const impacts = [
-    { number: "10M+", label: "Trees Planted", icon: <Leaf className="h-8 w-8 text-primary" /> },
-    { number: "500+", label: "Communities Served", icon: <Users className="h-8 w-8 text-primary" /> },
-    { number: "100+", label: "Clean Water Projects", icon: <Droplets className="h-8 w-8 text-primary" /> },
-    { number: "50+", label: "Solar Installations", icon: <Sun className="h-8 w-8 text-primary" /> },
+    { number: "10K+", label: "Girls Educated", icon: <BookOpen className="h-8 w-8 text-primary" /> },
+    { number: "50K+", label: "Lives Impacted", icon: <HeartPulse className="h-8 w-8 text-primary" /> },
+    { number: "100+", label: "Communities Served", icon: <Users className="h-8 w-8 text-primary" /> },
+    { number: "5K+", label: "Women Empowered", icon: <Lightbulb className="h-8 w-8 text-primary" /> },
   ]
 
   return (
@@ -274,7 +258,7 @@ const ImpactSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Through our projects and initiatives, we've made a significant impact on communities and the environment.
+            Through our projects and initiatives, we&apos;ve made a significant impact on communities and lives.
           </motion.p>
         </div>
 
@@ -349,4 +333,3 @@ const GetInvolvedSection = () => (
     </div>
   </section>
 )
-

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import Image from "next/image"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -42,18 +43,11 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="w-10 h-10 rounded-full bg-primary flex items-center justify-center"
+              className="w-32 h-10 bg-white flex items-center justify-center"
             >
-              <span className="text-primary-foreground font-bold text-lg">NGO</span>
+              {/* <span className="text-primary-foreground font-bold text-lg">NGO</span> */}
+              <Image src="/tarunya.png" alt='' width={80} height={40} />
             </motion.div>
-            <motion.span
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xl font-bold text-foreground"
-            >
-              EcoImpact
-            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}

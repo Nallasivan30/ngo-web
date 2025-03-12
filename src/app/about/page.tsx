@@ -23,13 +23,13 @@ export default function About() {
   return (
     <RootLayout>
       <div className="overflow-hidden">
-      <HeroSection />
-      <OurStorySection />
-      <MissionVisionSection />
-      <TeamSection />
-      <ValuesSection />
-      <JoinUsSection />
-    </div>
+        <HeroSection />
+        <OurStorySection />
+        <MissionVisionSection />
+        <TeamSection />
+        <ValuesSection />
+        <JoinUsSection />
+      </div>
     </RootLayout>
   )
 }
@@ -37,7 +37,7 @@ export default function About() {
 const HeroSection = () => (
   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-primary">
     <div className="absolute inset-0 z-0">
-      <Image src="/placeholder.svg" alt="About hero background" fill className="object-cover opacity-20" priority />
+      <Image src="/scss.jpg" alt="About hero background" fill className="object-cover opacity-70" priority />
     </div>
     <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
       <motion.h1
@@ -46,7 +46,7 @@ const HeroSection = () => (
         transition={{ duration: 0.8 }}
         className="text-4xl md:text-6xl font-bold mb-4"
       >
-        About EcoImpact
+        About Tarunya Foundation
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const HeroSection = () => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-xl max-w-2xl mx-auto"
       >
-        Dedicated to creating a sustainable future for our planet and communities
+        Empowering communities through education, healthcare, and sustainable development
       </motion.p>
     </div>
   </section>
@@ -72,19 +72,13 @@ const OurStorySection = () => (
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
           <p className="text-muted-foreground mb-4">
-            Founded in 2005, EcoImpact began with a simple mission: to protect our planet and empower communities to
-            create sustainable change. What started as a small group of passionate environmentalists has grown into a
-            global organization with projects in over 50 countries.
+            Founded in 2010, Tarunya Foundation began with a mission to uplift underprivileged communities, particularly women and children, through education, healthcare, and sustainable development programs. What started as a small initiative has now grown into a significant force for change, impacting thousands of lives across India.
           </p>
           <p className="text-muted-foreground mb-4">
-            Our journey has been one of growth, learning, and impact. We've planted millions of trees, provided clean
-            water to hundreds of communities, and implemented renewable energy solutions in areas most affected by
-            climate change.
+            Our journey has been one of resilience, innovation, and impact. We have established schools, healthcare centers, and vocational training programs that have transformed communities and provided opportunities for a brighter future.
           </p>
           <p className="text-muted-foreground">
-            Through partnerships with local communities, governments, and other organizations, we've been able to scale
-            our impact and create lasting change. But our work is far from done, and we continue to innovate and expand
-            our efforts to address the most pressing environmental challenges of our time.
+            Through partnerships with local communities, governments, and other organizations, we have been able to scale our impact and create lasting change. Our work continues to evolve as we address the most pressing challenges faced by underprivileged communities.
           </p>
         </motion.div>
         <motion.div
@@ -94,7 +88,7 @@ const OurStorySection = () => (
           viewport={{ once: true }}
           className="relative h-[400px] rounded-lg overflow-hidden"
         >
-          <Image src="/placeholder.svg" alt="Our story" fill className="object-cover" />
+          <Image src="/mlt.jpg" alt="Our story" fill className="object-cover" />
         </motion.div>
       </div>
     </div>
@@ -114,8 +108,7 @@ const MissionVisionSection = () => (
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-muted-foreground">
-                To protect and restore the environment through sustainable practices, community empowerment, and
-                advocacy, creating a healthier planet for current and future generations.
+                To empower underprivileged communities, particularly women and children, through education, healthcare, and sustainable development programs, creating opportunities for a brighter future.
               </p>
             </div>
           }
@@ -129,8 +122,7 @@ const MissionVisionSection = () => (
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-muted-foreground">
-                A world where communities thrive in harmony with nature, where ecosystems are preserved and restored,
-                and where sustainable practices are the norm rather than the exception.
+                A world where every individual has access to education, healthcare, and opportunities to thrive, regardless of their socio-economic background.
               </p>
             </div>
           }
@@ -143,28 +135,28 @@ const MissionVisionSection = () => (
 const TeamSection = () => {
   const team = [
     {
-      name: "Jane Doe",
+      name: "Anita Sharma",
       role: "Executive Director",
-      bio: "Jane has over 15 years of experience in environmental conservation and nonprofit leadership.",
-      image: "/placeholder.svg",
+      bio: "Anita has over 15 years of experience in social work and nonprofit leadership.",
+      image: "/spcs.jpg",
     },
     {
-      name: "John Smith",
+      name: "Rajesh Kumar",
       role: "Operations Director",
-      bio: "John brings a wealth of experience in project management and sustainable development.",
-      image: "/placeholder.svg",
+      bio: "Rajesh brings a wealth of experience in project management and community development.",
+      image: "/spcs.jpg",
     },
     {
-      name: "Maria Rodriguez",
+      name: "Priya Mehta",
       role: "Program Manager",
-      bio: "Maria specializes in community engagement and has led numerous successful initiatives.",
-      image: "/placeholder.svg",
+      bio: "Priya specializes in education and has led numerous successful initiatives.",
+      image: "/spcs.jpg",
     },
     {
-      name: "David Chen",
-      role: "Environmental Scientist",
-      bio: "David's research and expertise guide our conservation and restoration projects.",
-      image: "/placeholder.svg",
+      name: "Suresh Patel",
+      role: "Healthcare Coordinator",
+      bio: "Suresh's expertise guides our healthcare programs and initiatives.",
+      image: "/spcs.jpg",
     },
   ]
 
@@ -219,21 +211,21 @@ const TeamSection = () => {
 const ValuesSection = () => {
   const values = [
     {
-      title: "Sustainability",
-      description: "We promote practices that meet present needs without compromising future generations.",
+      title: "Empowerment",
+      description: "We believe in empowering individuals to take control of their lives and futures.",
     },
     { title: "Integrity", description: "We uphold the highest ethical standards in all our actions and decisions." },
-    { title: "Innovation", description: "We constantly seek new and better ways to address environmental challenges." },
+    { title: "Innovation", description: "We constantly seek new and better ways to address social challenges." },
     {
       title: "Collaboration",
       description: "We believe in the power of partnerships to create lasting positive change.",
     },
     { title: "Inclusivity", description: "We value diversity and ensure all voices are heard and respected." },
-    { title: "Accountability", description: "We take responsibility for our actions and their impact on the planet." },
+    { title: "Accountability", description: "We take responsibility for our actions and their impact on the community." },
   ]
 
   return (
-    <ParallaxSection bgImage="/placeholder.svg" className="py-20 text-white">
+    <ParallaxSection bgImage="/values-bg.jpg" className="py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -298,8 +290,7 @@ const JoinUsSection = () => (
         viewport={{ once: true }}
         className="max-w-2xl mx-auto mb-8"
       >
-        We're always looking for passionate individuals to join our mission. Check out our current openings or volunteer
-        opportunities.
+        We&apos;re always looking for passionate individuals to join our mission. Check out our current openings or volunteer opportunities.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -309,11 +300,10 @@ const JoinUsSection = () => (
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
         <Button className="bg-white text-primary hover:bg-gray-100 button-ripple">View Openings</Button>
-        <Button variant="outline" className="text-white border-white hover:bg-white/10 button-ripple">
+        <Button variant="outline" className="text-primary border-white hover:bg-white/10 button-ripple">
           Volunteer With Us
         </Button>
       </motion.div>
     </div>
   </section>
 )
-

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EcoImpact NGO",
-  description: "Making a difference for our planet and communities",
+  title: "Tarunya Foundation",
+  description: "Creating the creators",
 }
 export default function RootLayout({
   children,

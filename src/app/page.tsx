@@ -9,7 +9,7 @@ import { Carousel } from "@/components/carousels"
 import { AnimatedCard } from "@/components/animated-card"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Loading } from "@/components/loading"
-import { ArrowRight, Globe, Users, Heart, Leaf, Droplets, Sun } from "lucide-react"
+import { ArrowRight, Book, Heart, Users, Briefcase, Award } from "lucide-react"
 import RootLayout from "@/components/layout"
 
 export default function Home() {
@@ -23,17 +23,17 @@ export default function Home() {
   if (isLoading) return <Loading />
 
   return (
-    <RootLayout>
-          <div className="overflow-hidden">
-          <HeroSection />
-          <MissionSection />
-          <ImpactSection />
-          <ProjectsSection />
-          <TestimonialsSection />
-          <PartnersSection />
-          <CallToActionSection />
-        </div>
-    </RootLayout>
+<RootLayout>
+<div className="overflow-hidden">
+      <HeroSection />
+      <MissionSection />
+      <ImpactSection />
+      <OurWorkSection />
+      <TestimonialsSection />
+      <PartnersSection />
+      <CallToActionSection />
+    </div>
+</RootLayout>
   )
 }
 
@@ -44,30 +44,20 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <Image src="/placeholder.svg" alt="Hero background" fill className="object-cover" priority />
+        <Image src="/yth.jpg" alt="Hero background" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-6"
-        >
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/20 text-primary-foreground text-sm font-medium mb-4">
-            Empowering Communities, Protecting Our Planet
-          </span>
-        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
-          Creating a <span className="text-primary">Sustainable Future</span>
+          Empowering Lives,
           <br />
-          For Generations to Come
+          Transforming Communities
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -75,8 +65,8 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200"
         >
-          Join us in our mission to protect the environment, empower communities, and create lasting positive change
-          around the world.
+          Join us in our mission to create lasting change through education, health, livelihood, and women empowerment
+          initiatives.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -85,7 +75,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button size="lg" className="button-ripple">
-            Get Involved
+            Donate Now
           </Button>
           <Button
             size="lg"
@@ -96,17 +86,6 @@ const HeroSection = () => {
           </Button>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
-          <ArrowRight className="h-10 w-10 text-white rotate-90" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
@@ -132,25 +111,24 @@ const MissionSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            We are dedicated to creating sustainable solutions for environmental challenges and empowering communities
-            worldwide.
+            We are dedicated to empowering underprivileged communities through sustainable development initiatives.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <AnimatedCard
             delay={0.1}
             header={
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Globe className="h-8 w-8 text-primary" />
+                  <Book className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Environmental Protection</CardTitle>
+                <CardTitle>Education</CardTitle>
               </div>
             }
             content={
               <p className="text-center text-muted-foreground">
-                We work to protect and restore ecosystems, combat climate change, and promote biodiversity conservation.
+                Providing quality education and skill development opportunities to empower the youth.
               </p>
             }
           />
@@ -159,14 +137,14 @@ const MissionSection = () => {
             header={
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Users className="h-8 w-8 text-primary" />
+                  <Heart className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Community Empowerment</CardTitle>
+                <CardTitle>Health</CardTitle>
               </div>
             }
             content={
               <p className="text-center text-muted-foreground">
-                We empower local communities through education, training, and sustainable development initiatives.
+                Improving access to healthcare and promoting wellness in underserved communities.
               </p>
             }
           />
@@ -175,14 +153,30 @@ const MissionSection = () => {
             header={
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Heart className="h-8 w-8 text-primary" />
+                  <Briefcase className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle>Advocacy & Awareness</CardTitle>
+                <CardTitle>Livelihood</CardTitle>
               </div>
             }
             content={
               <p className="text-center text-muted-foreground">
-                We advocate for environmental policies and raise awareness about pressing ecological issues.
+                Creating sustainable livelihood opportunities to foster economic independence.
+              </p>
+            }
+          />
+          <AnimatedCard
+            delay={0.4}
+            header={
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Women Empowerment</CardTitle>
+              </div>
+            }
+            content={
+              <p className="text-center text-muted-foreground">
+                Empowering women through education, skills training, and entrepreneurship support.
               </p>
             }
           />
@@ -213,16 +207,16 @@ const ImpactSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Through our programs and initiatives, we've made a significant impact on communities and the environment.
+            Through our programs and initiatives, we&apos;ve made a significant impact on communities across India.
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { number: "10M+", label: "Trees Planted", icon: <Leaf className="h-8 w-8 text-primary" /> },
-            { number: "500+", label: "Communities Served", icon: <Users className="h-8 w-8 text-primary" /> },
-            { number: "100+", label: "Clean Water Projects", icon: <Droplets className="h-8 w-8 text-primary" /> },
-            { number: "50+", label: "Solar Installations", icon: <Sun className="h-8 w-8 text-primary" /> },
+            { number: "50,000+", label: "Lives Impacted", icon: <Users className="h-8 w-8 text-primary" /> },
+            { number: "100+", label: "Schools Supported", icon: <Book className="h-8 w-8 text-primary" /> },
+            { number: "5,000+", label: "Women Empowered", icon: <Award className="h-8 w-8 text-primary" /> },
+            { number: "20+", label: "Communities Served", icon: <Heart className="h-8 w-8 text-primary" /> },
           ].map((item, index) => (
             <motion.div
               key={item.label}
@@ -253,27 +247,27 @@ const ImpactSection = () => {
   )
 }
 
-const ProjectsSection = () => {
+const OurWorkSection = () => {
   const projects = [
     {
-      title: "Reforestation Initiative",
-      description: "Restoring forests and biodiversity in degraded areas.",
-      image: "/placeholder.svg",
+      title: "Education for All",
+      description: "Providing quality education to underprivileged children.",
+      image: "/bkss.jpg",
     },
     {
-      title: "Clean Water Access",
-      description: "Providing clean water solutions to communities in need.",
-      image: "/placeholder.svg",
+      title: "Healthcare Outreach",
+      description: "Bringing essential healthcare services to remote communities.",
+      image: "/health.jpeg",
     },
     {
-      title: "Renewable Energy",
-      description: "Implementing solar and wind energy projects in rural areas.",
-      image: "/placeholder.svg",
+      title: "Skill Development",
+      description: "Empowering youth with vocational training and job skills.",
+      image: "/vrcnf.jpg"
     },
     {
-      title: "Environmental Education",
-      description: "Teaching sustainable practices to schools and communities.",
-      image: "/placeholder.svg",
+      title: "Women's Entrepreneurship",
+      description: "Supporting women-led businesses and economic independence.",
+      image: "/wmn.jpeg",
     },
   ]
 
@@ -288,7 +282,7 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Our <span className="text-primary">Projects</span>
+            Our <span className="text-primary">Work</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -297,11 +291,11 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Explore our ongoing projects and initiatives making a difference around the world.
+            Explore our ongoing projects and initiatives making a difference across communities.
           </motion.p>
         </div>
 
-        <div className="grid-masonry">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project, index) => (
             <AnimatedCard
               key={project.title}
@@ -310,7 +304,7 @@ const ProjectsSection = () => {
               header={
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-110"
@@ -345,29 +339,28 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       quote:
-        "The work EcoImpact is doing has transformed our community. We now have clean water and sustainable farming practices.",
-      author: "Maria Rodriguez",
-      role: "Community Leader",
-      image: "/placeholder.svg",
+        "The Tarunya Foundation's education program has transformed my life. I'm now pursuing my dream of becoming a teacher.",
+      author: "Priya S.",
+      role: "Education Program Beneficiary",
+      image: "/spcs.jpg",
     },
     {
       quote:
-        "I've volunteered with EcoImpact for three years, and I'm amazed by the dedication and impact of their programs.",
-      author: "John Smith",
-      role: "Volunteer",
-      image: "/placeholder.svg",
+        "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
+      author: "Rajesh K.",
+      role: "Livelihood Program Participant",
+      image: "/spcs.jpg",
     },
     {
-      quote:
-        "As a corporate partner, we've seen firsthand how EcoImpact creates sustainable solutions that benefit both people and the planet.",
-      author: "Sarah Johnson",
-      role: "Corporate Partner",
-      image: "/placeholder.svg",
+      quote: "The women's empowerment program gave me the confidence and skills to become a community leader.",
+      author: "Lakshmi M.",
+      role: "Women Empowerment Program Graduate",
+      image: "/spcs.jpg",
     },
   ]
 
   return (
-    <ParallaxSection bgImage="/placeholder.svg" className="py-20 text-white">
+    <ParallaxSection bgImage="/bhyth.jpg" className="py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -377,7 +370,7 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            What People <span className="text-primary">Say</span>
+            Lives <span className="text-primary">Transformed</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -386,7 +379,7 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto"
           >
-            Hear from the communities, volunteers, and partners we work with.
+            Hear from the individuals whose lives have been changed by our programs.
           </motion.p>
         </div>
 
@@ -398,13 +391,13 @@ const TestimonialsSection = () => {
                   <div className="flex flex-col items-center text-center">
                     <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-primary">
                       <Image
-                        src={testimonial.image || "/placeholder.svg"}
+                        src={testimonial.image || "/cnff.jpg"}
                         alt={testimonial.author}
                         fill
                         className="object-cover"
                       />
                     </div>
-                    <p className="text-lg mb-4 italic">"{testimonial.quote}"</p>
+                    <p className="text-lg mb-4 italic">&quot;{testimonial.quote}&quot;</p>
                     <p className="font-bold">{testimonial.author}</p>
                     <p className="text-sm text-gray-300">{testimonial.role}</p>
                   </div>
@@ -419,7 +412,7 @@ const TestimonialsSection = () => {
 }
 
 const PartnersSection = () => {
-  const partners = Array(8).fill("/placeholder.svg")
+  const partners = Array(4).fill("/glb.jpg")
 
   return (
     <section className="py-20 bg-background">
@@ -441,7 +434,7 @@ const PartnersSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            We collaborate with organizations that share our vision for a sustainable future.
+            We collaborate with organizations that share our vision for empowering communities.
           </motion.p>
         </div>
 
@@ -505,7 +498,7 @@ const CallToActionSection = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-gray-100 button-ripple">
               Donate Now
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 button-ripple">
+            <Button size="lg" variant="outline" className="text-primary border-white hover:bg-white/10 button-ripple">
               Volunteer
             </Button>
           </motion.div>
