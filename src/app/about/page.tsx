@@ -72,13 +72,13 @@ const OurStorySection = () => (
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
           <p className="text-muted-foreground mb-4">
-            Founded in 2010, Tarunya Foundation began with a mission to uplift underprivileged communities, particularly women and children, through education, healthcare, and sustainable development programs. What started as a small initiative has now grown into a significant force for change, impacting thousands of lives across India.
+          While working with a grassroots organization in Tirunelveli, Anitha and Kavi witnessed a troubling disconnect: despite school and college enrollment, true learning and knowledge were eluding the children and youth. They observed that most graduates and postgraduates were lost, uncertain about their future, and unaware of their own potential. The typical outcomes were disheartening—a young man would settle for a menial local job, while a young woman’s path often led to early marriage.
           </p>
           <p className="text-muted-foreground mb-4">
-            Our journey has been one of resilience, innovation, and impact. We have established schools, healthcare centers, and vocational training programs that have transformed communities and provided opportunities for a brighter future.
+          Determined to break this cycle, Anitha and Kavi delved deeply into the unique challenges of the region. They realized that with the right environment—a safe learning space, access to opportunities, and timely mentorship—every rural child and youth could dream big and have the courage to chase those dreams.
           </p>
           <p className="text-muted-foreground">
-            Through partnerships with local communities, governments, and other organizations, we have been able to scale our impact and create lasting change. Our work continues to evolve as we address the most pressing challenges faced by underprivileged communities.
+          In 2020, Tarunya was born with an aspiration: to bridge the gap in the quality of education and exposure by empowering rural children and youth with the awareness, skills, attitude and agency needed to lead informed, purposeful lives. The journey began in a small learning center in Sivalingapuram village, Tenkasi district, with just 25 schoolchildren. From this modest start, Tarunya set out to transform not only individual lives but also the future of an entire community.
           </p>
         </motion.div>
         <motion.div
@@ -108,7 +108,7 @@ const MissionVisionSection = () => (
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-muted-foreground">
-                To empower underprivileged communities, particularly women and children, through education, healthcare, and sustainable development programs, creating opportunities for a brighter future.
+              To create safe learning spaces and opportunities that foster the holistic transformation of rural children and youth through socio-emotional skills, career readiness, and mentorship.
               </p>
             </div>
           }
@@ -122,7 +122,7 @@ const MissionVisionSection = () => (
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-muted-foreground">
-                A world where every individual has access to education, healthcare, and opportunities to thrive, regardless of their socio-economic background.
+              India’s rural children and youth empowered with the ability and agency to explore their full potential and pursue their aspirations without being limited by their background or geography.
               </p>
             </div>
           }
@@ -135,34 +135,23 @@ const MissionVisionSection = () => (
 const TeamSection = () => {
   const team = [
     {
-      name: "Anita Sharma",
-      role: "Executive Director",
-      bio: "Anita has over 15 years of experience in social work and nonprofit leadership.",
+      name: "Anita Choudhary​",
+      role: "Co – Anchor",
+      bio: "Anitha is an electronic engineer and a proud Young India Fellow. With a strong foundation in business consulting from her time at Deloitte Consulting Pvt Ltd, Anitha made a transformative shift towards working with rural children and youth. Her passion for designing learning experiences for behaviour change and life skills drives her to empower young minds, helping them realize their potential. Known for her strategic thinking and sharp people management skills, Anitha excels in crafting impactful learning programs that create lasting change. A dedicated mother, yoga enthusiast, and advocate for minimalism, she champions the importance of a balanced, healthy lifestyle.",
       image: "/spcs.jpg",
     },
     {
-      name: "Rajesh Kumar",
-      role: "Operations Director",
-      bio: "Rajesh brings a wealth of experience in project management and community development.",
+      name: "Kaviarasi Mariappan",
+      role: "Co – Anchor",
+      bio: "A graduate with a Bachelor’s degree in Chemistry from a rural college, Kaviarasi’s mission is rooted in her own experiences and background. She specializes in designing and leading life-skills based experiential programs and workshops tailored for college students. She is a dedicated facilitator and an eloquent Tamil poet who also enjoys meditating and tailoring. Her academic achievements include being an alumna of the Young India Fellowship and the Mother Teresa Fellowship from Ashoka University, Haryana. Additionally, Kaviarasi is a Vriksh Fellow and a participant in Jagriti Yatra, underscoring her commitment towards community development.",
       image: "/spcs.jpg",
     },
-    {
-      name: "Priya Mehta",
-      role: "Program Manager",
-      bio: "Priya specializes in education and has led numerous successful initiatives.",
-      image: "/spcs.jpg",
-    },
-    {
-      name: "Suresh Patel",
-      role: "Healthcare Coordinator",
-      bio: "Suresh's expertise guides our healthcare programs and initiatives.",
-      image: "/spcs.jpg",
-    },
+    
   ]
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container w-full mx-auto py-7 px-4">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -184,15 +173,15 @@ const TeamSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {team.map((member, index) => (
             <AnimatedCard
               key={member.name}
               delay={index * 0.1}
-              className="h-full"
+              className="h-full w-full"
               content={
                 <div className="text-center">
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
+                  <div className="relative mt-5 w-32 h-32 rounded-full overflow-hidden mx-auto mb-4">
                     <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
@@ -211,17 +200,17 @@ const TeamSection = () => {
 const ValuesSection = () => {
   const values = [
     {
-      title: "Empowerment",
-      description: "We believe in empowering individuals to take control of their lives and futures.",
+      title: "Courage",
+      description: "We boldly take on challenges, make though decisions, and stand up for what's right. We instill courage in our children and youth, empowering them to make informed decisions and advocate for themselves. ",
     },
-    { title: "Integrity", description: "We uphold the highest ethical standards in all our actions and decisions." },
-    { title: "Innovation", description: "We constantly seek new and better ways to address social challenges." },
+    { title: "Commitment ", description: "Our dedication to improving the well-being of rural children and youth never wavers. We follow through on our goals, ensuring consistent effort in every initiative. " },
+    { title: "Integrity", description: " We prioritize honesty, transparency, and ethical practices, ensuring trust and accountability in every action. " },
     {
-      title: "Collaboration",
-      description: "We believe in the power of partnerships to create lasting positive change.",
+      title: "Equality ",
+      description: "Every individual, regardless of background or circumstance, has access to the same opportunities and resources. We create a non-judgemental, inclusive spaces for all voices to be heard. ",
     },
-    { title: "Inclusivity", description: "We value diversity and ensure all voices are heard and respected." },
-    { title: "Accountability", description: "We take responsibility for our actions and their impact on the community." },
+    { title: "Excellence", description: " We pursue the highest standards in everything we do, embracing continuous learning and innovation to create meaningful impact. " },
+    { title: "Humility", description: " With humility, we listen, learn and serve alongside our communities. We respect every individual's contribution in this shared journey. " },
   ]
 
   return (

@@ -43,10 +43,14 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="w-32 h-10 bg-white flex items-center justify-center"
+              className="w-[50px] h-[20px] bg-whit gap-4 flex items-center justify-center"
             >
               {/* <span className="text-primary-foreground font-bold text-lg">NGO</span> */}
-              <Image src="/tarunya.png" alt='' width={80} height={40} />
+              <Image src="/tarunya.png" alt='' width={50} height={20} />
+              <div className="flex flex-col gap-0">
+                <h3 className=" font-bold text-[16px]">TARUNYA</h3>
+                <span className=" font-bold text-[14px]">FOUNDATION</span>
+              </div>
             </motion.div>
           </Link>
 

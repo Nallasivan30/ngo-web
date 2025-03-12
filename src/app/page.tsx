@@ -250,24 +250,19 @@ const ImpactSection = () => {
 const OurWorkSection = () => {
   const projects = [
     {
-      title: "Education for All",
-      description: "Providing quality education to underprivileged children.",
+      title: "Vidiyal Learning Center",
+      description: " Vidiyal Learning Centre nurtures the potential of rural children by addressing foundational gaps in education. Through activity-based learning, mentoring, and emotional support, the program creates a safe and joyful environment where children can thrive academically, socially, and emotionally, laying the groundwork for a brighter future",
       image: "/bkss.jpg",
     },
     {
-      title: "Healthcare Outreach",
-      description: "Bringing essential healthcare services to remote communities.",
+      title: "Vriksham Youth Leadership Program",
+      description: "Vriksham empowers rural youth with the socio-emotional skills, career readiness, and confidence they need to succeed. This one-year hybrid program equips participants with tools for holistic growth, enabling them to overcome systemic challenges, embrace leadership roles, and achieve their aspirations. ",
       image: "/health.jpeg",
     },
     {
-      title: "Skill Development",
-      description: "Empowering youth with vocational training and job skills.",
+      title: "Vishwas",
+      description: "Project Vishwas champions the cause of child safety and protection through awareness and training on the POCSO Act. By educating children, parents, and communities in both rural and urban areas, the project fosters safe spaces and ensures that every child understands their rights, boundaries, and the importance of personal safety.",
       image: "/vrcnf.jpg"
-    },
-    {
-      title: "Women's Entrepreneurship",
-      description: "Supporting women-led businesses and economic independence.",
-      image: "/wmn.jpeg",
     },
   ]
 
@@ -295,7 +290,7 @@ const OurWorkSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <AnimatedCard
               key={project.title}
