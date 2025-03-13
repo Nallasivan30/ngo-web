@@ -24,7 +24,9 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-muted-foreground mb-4">Subscribe to our newsletter for the latest news and updates.</p>
+              <p className="text-muted-foreground mb-4">
+                Subscribe to our newsletter for the latest news, updates, and success stories.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -48,10 +50,10 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-bold mb-4">About EcoImpact</h4>
+            <h4 className="text-lg font-bold mb-4">About Tarunya Foundation</h4>
             <p className="text-muted-foreground mb-4">
-              We are dedicated to creating sustainable solutions for environmental challenges and empowering communities
-              worldwide.
+              Tarunya Foundation is a non-profit organization dedicated to empowering underprivileged communities through
+              education, healthcare, and sustainable development programs.
             </p>
             <div className="flex space-x-4">
               <SocialIcon icon={<Facebook size={18} />} href="#" label="Facebook" />
@@ -88,11 +90,10 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold mb-4">Our Programs</h4>
             <ul className="space-y-2">
-              <FooterLink href="/programs/reforestation">Reforestation</FooterLink>
-              <FooterLink href="/programs/clean-water">Clean Water</FooterLink>
-              <FooterLink href="/programs/renewable-energy">Renewable Energy</FooterLink>
-              <FooterLink href="/programs/education">Environmental Education</FooterLink>
-              <FooterLink href="/programs/wildlife">Wildlife Conservation</FooterLink>
+              <FooterLink href="/programs/education">Girls&apos; Education</FooterLink>
+              <FooterLink href="/programs/livelihood">Women&apos;s Livelihood</FooterLink>
+              <FooterLink href="/programs/community">Community Development</FooterLink>
+              <FooterLink href="/programs/environment">Environmental Sustainability</FooterLink>
             </ul>
           </motion.div>
 
@@ -107,15 +108,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">123 Green Street, Eco City, EC 12345</span>
+                <span className="text-muted-foreground">123 Agangulam, Tenkasi, India</span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 text-primary" />
-                <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground">+91 12345 67890</span>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 text-primary" />
-                <span className="text-muted-foreground">info@ecoimpact.org</span>
+                <span className="text-muted-foreground">info@tarunyafoundation.org</span>
               </li>
             </ul>
           </motion.div>
@@ -124,8 +125,8 @@ const Footer = () => {
         {/* Copyright */}
         <div className="py-6 border-t border-border text-center">
           <p className="text-muted-foreground text-sm">
-            &copy; {currentYear} EcoImpact NGO. All rights reserved. Made with{" "}
-            <Heart className="inline-block h-4 w-4 text-red-500" /> for a better planet.
+            &copy; {currentYear} Tarunya Foundation. All rights reserved. Made with{" "}
+            <Heart className="inline-block h-4 w-4 text-red-500" /> for a better tomorrow.
           </p>
         </div>
       </div>
@@ -152,4 +153,3 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
 )
 
 export default Footer
-

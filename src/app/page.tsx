@@ -77,11 +77,7 @@ const HeroSection = () => {
           <Button size="lg" className="button-ripple">
             Donate Now
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-white border-white hover:bg-white hover:text-black button-ripple"
-          >
+          <Button size="lg" variant="outline" className="text-primary border-white hover:text-primary hover:bg-white/10 button-ripple">
             Learn More
           </Button>
         </motion.div>
