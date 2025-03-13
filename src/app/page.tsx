@@ -382,7 +382,7 @@ const PartnersSection = () => {
   const partners = Array(4).fill("/glb.jpg")
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-[url('/bgg.jpg')] bg-cover bg-center">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
