@@ -4,13 +4,14 @@ import { useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, } from "@/components/ui/card"
 import { Carousel } from "@/components/carousels"
 import { AnimatedCard } from "@/components/animated-card"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Loading } from "@/components/loading"
 import { ArrowRight, Book, Heart, Users, Briefcase, Award } from "lucide-react"
 import RootLayout from "@/components/layout"
+import Link from "next/link"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -75,7 +76,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button size="lg" className="button-ripple">
-            Donate Now
+            <Link href={"/donate"}>Donate Now</Link>
           </Button>
           <Button size="lg" variant="outline" className="text-primary border-white hover:text-primary hover:bg-white/10 button-ripple">
             Learn More
@@ -87,6 +88,30 @@ const HeroSection = () => {
 }
 
 const MissionSection = () => {
+  // Mission data array
+  const missionData = [
+    {
+      icon: <Book className="h-8 w-8 text-primary" />,
+      title: "Education",
+      description: "Providing quality education and skill development opportunities to empower the youth.",
+    },
+    {
+      icon: <Heart className="h-8 w-8 text-primary" />,
+      title: "Health",
+      description: "Improving access to healthcare and promoting wellness in underserved communities.",
+    },
+    {
+      icon: <Briefcase className="h-8 w-8 text-primary" />,
+      title: "Livelihood",
+      description: "Creating sustainable livelihood opportunities to foster economic independence.",
+    },
+    {
+      icon: <Users className="h-8 w-8 text-primary" />,
+      title: "Women Empowerment",
+      description: "Empowering women through education, skills training, and entrepreneurship support.",
+    },
+  ]
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -112,70 +137,21 @@ const MissionSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <AnimatedCard
-            delay={0.1}
-            header={
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Book className="h-8 w-8 text-primary" />
+          {missionData.map((mission, index) => (
+            <AnimatedCard
+              key={mission.title}
+              delay={0.1 * (index + 1)} // Delay increases for each card
+              header={
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    {mission.icon}
+                  </div>
+                  <h3 className="text-xl font-bold">{mission.title}</h3>
                 </div>
-                <CardTitle>Education</CardTitle>
-              </div>
-            }
-            content={
-              <p className="text-center text-muted-foreground">
-                Providing quality education and skill development opportunities to empower the youth.
-              </p>
-            }
-          />
-          <AnimatedCard
-            delay={0.2}
-            header={
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Heart className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle>Health</CardTitle>
-              </div>
-            }
-            content={
-              <p className="text-center text-muted-foreground">
-                Improving access to healthcare and promoting wellness in underserved communities.
-              </p>
-            }
-          />
-          <AnimatedCard
-            delay={0.3}
-            header={
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Briefcase className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle>Livelihood</CardTitle>
-              </div>
-            }
-            content={
-              <p className="text-center text-muted-foreground">
-                Creating sustainable livelihood opportunities to foster economic independence.
-              </p>
-            }
-          />
-          <AnimatedCard
-            delay={0.4}
-            header={
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle>Women Empowerment</CardTitle>
-              </div>
-            }
-            content={
-              <p className="text-center text-muted-foreground">
-                Empowering women through education, skills training, and entrepreneurship support.
-              </p>
-            }
-          />
+              }
+              content={<p className="text-center text-muted-foreground">{mission.description}</p>}
+            />
+          ))}
         </div>
       </div>
     </section>

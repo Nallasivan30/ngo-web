@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -20,6 +21,7 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const router = useRouter() // Initialize useRouter
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +30,12 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Function to handle donation button click
+  const handleDonateClick = () => {
+    router.push("/donate") // Navigate to the donate page
+  }
+  
 
   return (
     <nav
@@ -38,18 +46,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex ml-11 items-center space-x-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="w-[50px] h-[20px] bg-whit gap-4 flex items-center justify-center"
             >
-              {/* <span className="text-primary-foreground font-bold text-lg">NGO</span> */}
-              <Image src="/tarunya.png" alt='' width={50} height={20} />
+              <Image src="/tarunya.png" alt="" width={50} height={20} />
               <div className="flex flex-col gap-0">
-                <h3 className=" font-bold text-[16px]">TARUNYA</h3>
-                <span className=" font-bold text-[14px]">FOUNDATION</span>
+                <h3 className="font-bold text-[16px]">TARUNYA</h3>
+                <span className="font-bold text-[14px]">FOUNDATION</span>
               </div>
             </motion.div>
           </Link>
@@ -76,7 +83,9 @@ const Navbar = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
             >
-              <Button className="ml-4 button-ripple">Donate Now</Button>
+              <Button className="ml-4 button-ripple" onClick={handleDonateClick}>
+                Donate Now
+              </Button>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -130,7 +139,9 @@ const Navbar = () => {
                 transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
                 className="pt-2"
               >
-                <Button className="w-full button-ripple">Donate Now</Button>
+                <Button className="w-full button-ripple" onClick={handleDonateClick}>
+                  Donate Now
+                </Button>
               </motion.div>
             </div>
           </motion.div>
@@ -141,4 +152,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
