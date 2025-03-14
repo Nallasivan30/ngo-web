@@ -9,6 +9,7 @@ import { ParallaxSection } from "@/components/parallax-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { Loading } from "@/components/loading"
 import RootLayout from "@/components/layout"
+import HeroCarousel from "@/components/HeroCarousel"
 
 export default function About() {
   const [isLoading, setIsLoading] = useState(true)
@@ -23,7 +24,7 @@ export default function About() {
   return (
     <RootLayout>
       <div className="overflow-hidden">
-        <HeroSection />
+        <HeroCarousel />
         <OurStorySection />
         <MissionVisionSection />
         <TeamSection />
@@ -34,31 +35,31 @@ export default function About() {
   )
 }
 
-const HeroSection = () => (
-  <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-primary">
-    <div className="absolute inset-0 z-0">
-      <Image src="/scss.jpg" alt="About hero background" fill className="object-cover opacity-70" priority />
-    </div>
-    <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-6xl font-bold mb-4"
-      >
-        About Tarunya Foundation
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xl max-w-2xl mx-auto"
-      >
-        Empowering communities through education, healthcare, and sustainable development
-      </motion.p>
-    </div>
-  </section>
-)
+// const HeroSection = () => (
+//   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-primary">
+//     <div className="absolute inset-0 z-0">
+//       <Image src="/scss.jpg" alt="About hero background" fill className="object-cover opacity-70" priority />
+//     </div>
+//     <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
+//       <motion.h1
+//         initial={{ opacity: 0, y: 20 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.8 }}
+//         className="text-4xl md:text-6xl font-bold mb-4"
+//       >
+//         About Tarunya Foundation
+//       </motion.h1>
+//       <motion.p
+//         initial={{ opacity: 0, y: 20 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.8, delay: 0.2 }}
+//         className="text-xl max-w-2xl mx-auto"
+//       >
+//         Empowering communities through education, healthcare, and sustainable development
+//       </motion.p>
+//     </div>
+//   </section>
+// )
 
 const OurStorySection = () => (
   <section className="py-20 bg-background">
