@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Image from "next/image"
@@ -12,6 +12,16 @@ import Image from "next/image"
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  {
+    name: "Programs",
+    href: "#",
+    dropdown: true,
+    items: [
+      { name: "VYLP (Vriksham Youth Leadership Program)", href: "/programs/vylp" },
+      { name: "Vidiyal Learning Center", href: "/programs/vidiyal" },
+      { name: "Project Vishwa", href: "/programs/vishwa" },
+    ],
+  },
   { name: "Projects", href: "/projects" },
   { name: "Events", href: "/events" },
   { name: "Blog", href: "/blog" },
@@ -21,7 +31,8 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const router = useRouter() // Initialize useRouter
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,11 +42,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Function to handle donation button click
-  const handleDonateClick = () => {
-    router.push("/donate") // Navigate to the donate page
+  const handleDropdownToggle = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name)
   }
-  
+
+  const closeDropdowns = () => {
+    setActiveDropdown(null)
+  }
+
+  const handleDonateClick = () => {
+    router.push("/donate")
+  }
 
   return (
     <nav
@@ -63,20 +80,53 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item, i) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
+            {navItems.map((item) => (
+              <div key={item.name} className="relative group">
+                {item.dropdown ? (
+                  <div>
+                    <button
+                      onClick={() => handleDropdownToggle(item.name)}
+                      className="px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center"
+                    >
+                      {item.name}
+                      <ChevronDown
+                        className={`ml-1 h-4 w-4 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {activeDropdown === item.name && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute left-0 mt-2 w-72 rounded-md shadow-lg bg-background ring-1 ring-black ring-opacity-5 z-50"
+                        >
+                          <div className="py-1">
+                            {item.items?.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-2 text-sm text-foreground hover:bg-primary hover:text-primary-foreground"
+                                onClick={closeDropdowns}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
             ))}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -118,20 +168,69 @@ const Navbar = () => {
           >
             <div className="px-4 pt-2 pb-4 space-y-1">
               {navItems.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <div>
+                      <motion.button
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: i * 0.1 }}
+                        onClick={() => handleDropdownToggle(item.name)}
+                        className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary transition-colors flex items-center justify-between"
+                      >
+                        {item.name}
+                        <ChevronDown
+                          className={`ml-1 h-4 w-4 transition-transform ${activeDropdown === item.name ? "rotate-180" : ""}`}
+                        />
+                      </motion.button>
+                      <AnimatePresence>
+                        {activeDropdown === item.name && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="pl-6"
+                          >
+                            {item.items?.map((subItem, j) => (
+                              <motion.div
+                                key={subItem.name}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.2, delay: j * 0.05 }}
+                              >
+                                <Link
+                                  href={subItem.href}
+                                  className="block px-3 py-2 rounded-md text-sm text-foreground hover:text-primary transition-colors"
+                                  onClick={() => {
+                                    closeDropdowns()
+                                    setIsOpen(false)
+                                  }}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: i * 0.1 }}
+                    >
+                      <Link
+                        href={item.href}
+                        className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  )}
+                </div>
               ))}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -152,3 +251,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

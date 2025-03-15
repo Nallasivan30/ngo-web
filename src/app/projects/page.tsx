@@ -9,6 +9,7 @@ import { AnimatedCard } from "@/components/animated-card"
 import { Loading } from "@/components/loading"
 import { ArrowRight, BookOpen, HeartPulse, Lightbulb, HandHeart, Users } from "lucide-react"
 import RootLayout from "@/components/layout"
+import { YouTubeVideo } from "@/components/youtube-video"
 
 export default function Projects() {
   const [isLoading, setIsLoading] = useState(true)
@@ -195,41 +196,34 @@ const FeaturedProjectSection = () => (
   <section className="py-20 bg-secondary">
     <div className="container mx-auto px-4">
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative h-[400px] rounded-lg overflow-hidden"
-        >
-          <Image src="/bwg.jpg" alt="Featured project" fill className="object-cover" />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {/* YouTube Video */}
+        <div className="relative h-[400px] rounded-lg overflow-hidden">
+          <YouTubeVideo videoId="                   " title="Featured Project Video" className="h-full" />
+        </div>
+
+        {/* Project Details */}
+        <div>
           <div className="inline-block px-4 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium mb-4">
             Featured Project
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Girls&apos; Education Program</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Vidiyal Learning Center
+          </h2>
           <p className="text-muted-foreground mb-4">
-            Our Girls&apos; Education Program is transforming lives by providing access to quality education for underprivileged girls. Through scholarships, mentorship, and community engagement, we&apos;re breaking barriers and creating opportunities for a brighter future.
+          Vidiyal Learning Centers are safe learning spaces established within the village to supplement the sub-par mainstream education that rural children receive through low-resource government schools. Children are engaged in a range of activities pertaining to a holistic development curriculum during after school hours and over weekends. Additionally, each child is supported through individualized mentorship to navigate through their personal lives with courage and confidence. 
           </p>
           <p className="text-muted-foreground mb-6">
-            Since its inception, the program has supported over 10,000 girls, helping them complete their education and pursue their dreams. Join us in empowering the next generation of leaders.
+          At the heart of Tarunya Foundation’s commitment to empowering rural children lies the Sivalingapuram Vidiyal Learning Center (VLC). Established in 2020 in the village of Sivalingapuram, Tenkasi district, VLC became a nurturing space that catered to the holistic development of about 35 children aged below 16 years. Through after-school sessions, workshops, and community projects, VLC focuses on enhancing academic knowledge, life skills, creativity, and self-awareness. Over the years, the center has evolved into a hub of learning and curiosity, fostering a sense of belonging and encouraging children to explore their potential.
           </p>
           <Button className="button-ripple">
             Learn More About This Project
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-        </motion.div>
+        </div>
       </div>
     </div>
   </section>
 )
-
 const ImpactSection = () => {
   const impacts = [
     { number: "10K+", label: "Girls Educated", icon: <BookOpen className="h-8 w-8 text-primary" /> },
@@ -323,10 +317,10 @@ const GetInvolvedSection = () => (
         className="flex flex-col sm:flex-row gap-4 justify-center"
       >
         <Button className="bg-white text-primary hover:bg-gray-100 button-ripple">Donate Now</Button>
-        <Button variant="outline" className="text-white border-white hover:bg-white/10 button-ripple">
+        <Button variant="outline" className="text-white bg-transparent border-white hover:bg-white/10 button-ripple">
           Volunteer
         </Button>
-        <Button variant="outline" className="text-white border-white hover:bg-white/10 button-ripple">
+        <Button variant="outline" className="text-white bg-transparent border-white hover:bg-white/10 button-ripple">
           Partner With Us
         </Button>
       </motion.div>

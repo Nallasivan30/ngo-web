@@ -392,7 +392,7 @@ const PartnersSection = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold mb-4"
           >
-            Our <span className="text-primary">Partners</span>
+            Our <span className="text-primary">Supporters</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -401,7 +401,7 @@ const PartnersSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            We collaborate with organizations that share our vision for empowering communities.
+            We are immensely grateful to these organizations for believing in us and supporting our cause by multiple means like mentorship support, workshops, material resources, curriculum collaborations, volunteer support and funding.
           </motion.p>
         </div>
 
