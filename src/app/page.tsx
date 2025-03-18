@@ -9,9 +9,11 @@ import { Carousel } from "@/components/carousels"
 import { AnimatedCard } from "@/components/animated-card"
 import { ParallaxSection } from "@/components/parallax-section"
 import { Loading } from "@/components/loading"
-import { ArrowRight, Book, Heart, Users, Briefcase, Award } from "lucide-react"
+import { Book, Heart, Users, Briefcase, Award } from "lucide-react"
 import RootLayout from "@/components/layout"
 import Link from "next/link"
+
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -25,16 +27,19 @@ export default function Home() {
 
   return (
 <RootLayout>
-<div className="overflow-hidden">
-      <HeroSection />
-      <MissionSection />
-      <ImpactSection />
-      <OurWorkSection />
-      <TestimonialsSection />
-      <PartnersSection />
-      <CallToActionSection />
-    </div>
-</RootLayout>
+      <div className="overflow-hidden">
+        <HeroSection />
+        <WhoAreWeSection /> {/* Added Who Are We Section */}
+        <ChallengesSection /> {/* Added Challenges Section */}
+        <MissionSection />
+        <OurWorkSection />
+        <ImpactSection />
+        <TestimonialsSection />
+        <YouTubeSection/>
+        <PartnersSection />
+        <CallToActionSection />
+      </div>
+ </RootLayout>
   )
 }
 
@@ -45,11 +50,11 @@ const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <Image src="/yth.jpg" alt="Hero background" fill className="object-cover" priority />
+        <Image src="/home/1.jpg" alt="Hero background" fill className="object-cover object-[0%_40%]  style={{ objectPosition: 'right center' }} "  priority />
         <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,7 +69,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200"
+          className="text-lg md:text-xl max-w-3xl mx-auto mb-8"
         >
           Join us in our mission to create lasting change through education, health, livelihood, and women empowerment
           initiatives.
@@ -82,6 +87,248 @@ const HeroSection = () => {
             Learn More
           </Button>
         </motion.div>
+      </div>
+    </section>
+  )
+}
+const WhoAreWeSection = () => {
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            Who <span className="text-primary">Are We?</span>
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative h-96 rounded-lg overflow-hidden"
+          >
+            <Image src="/home/2.jpg" alt="Who We Are" fill className="object-cover" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            
+            <p className="text-muted-foreground mb-4">
+              Tarunya Foundation is a registered non-profit organization committed to transforming the lives of rural children and youth by equipping 			them with the skills, confidence, awareness, and agency needed to envision and build a brighter future. Founded on the belief that every 				individual deserves the opportunity to realize their full potential, we strive to bridge critical gaps in education, leadership, and 					safety for communities that need it the most. 
+            </p>
+            
+            <p className="text-muted-foreground">
+              By addressing both immediate needs and long-term aspirations, we aim to inspire meaningful transformation, ensuring that each child and 			youth we reach embarks on a journey towards a fulfilling and impactful life. Together, we are not just shaping individuals; we are 						empowering communities for a stronger, more equitable future.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const ChallengesSection = () => {
+  const challenges = [
+    {
+      title: "Broken Foundations",
+      description:
+        "Across rural and urban settings, many schools fail to provide holistic education due to outdated teaching methods, lack of adequate resources, and systemic inefficiencies, leaving children unprepared for real-world challenges with a weak foundation. ",
+      icon: <Book className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Institutions Falling Short",
+      description:
+        "Educational institutions in rural settings often lack the infrastructure and support needed to impart relevant skills, emotional resilience, and critical thinking, leaving students underprepared for modern opportunities.",
+      icon: <Heart className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "The Weight of Inequality",
+      description:
+        "Economic struggles and social marginalization continue to deprive children and youth of essential support, stifling their dreams and limiting their potential in both rural and urban underserved communities ",
+      icon: <Briefcase className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "The Awareness Deficit",
+      description:
+        "Many children in rural and urban low-resource areas grow up with limited access to safe spaces, diverse opportunities, and critical knowledge, leaving them vulnerable and unprepared to navigate challenges like personal safety and child protection. ",
+      icon: <Users className="h-8 w-8 text-primary" />,
+    },
+  ]
+
+  return (
+    <section className="py-20 bg-secondary">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            Key <span className="text-primary">Challenges</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            We address some of the most pressing challenges faced by underprivileged communities.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {challenges.map((challenge, index) => (
+            <motion.div
+              key={challenge.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col md:flex-row gap-6 bg-background rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  {challenge.icon}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3">{challenge.title}</h3>
+                <p className="text-muted-foreground">{challenge.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const YouTubeSection = () => {
+  interface YouTubeVideoProps {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  videoId: any
+  title?: string
+  className?: string
+}
+  // YouTube video IDs - replace with actual video IDs
+  const videos = [
+    {
+      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      title: "Tarunya Foundation - Empowering Lives",
+      description: "Learn about our mission to transform communities through education and empowerment initiatives."
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      title: "Our Impact Journey",
+      description: "See how we've made a difference in the lives of thousands of children and families."
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      title: "Vidiyal Learning Center",
+      description: "Discover how we're bridging educational gaps in rural communities through our learning centers."
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      title: "Vriksham Youth Leadership",
+      description: "Watch how our youth leadership program is creating tomorrow's community leaders."
+    },
+    {
+      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      title: "Project Vishwas",
+      description: "Learn about our child safety initiative and how it's protecting vulnerable children."
+    },
+  ];
+
+  // Function to load YouTube iframe
+  const YouTubePlayer = ({ videoId, title }: YouTubeVideoProps) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    
+    return (
+      <div className="relative h-0 pb-[56.25%] rounded-lg overflow-hidden">
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-secondary flex items-center justify-center">
+            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          onLoad={() => setIsLoaded(true)}
+        ></iframe>
+      </div>
+    );
+  };
+
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            We Are Also on <span className="text-primary">YouTube</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            Watch our latest videos to learn more about our work and impact.
+          </motion.p>
+        </div>
+
+        {/* Horizontal scrollable container */}
+        <div className="relative">
+          {/* Navigation buttons */}
+          
+          
+
+          {/* Video cards */}
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-6 pb-4">
+              {videos.map((video, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex-shrink-0 w-[75%] md:w-96 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <YouTubePlayer videoId={video.id} title={video.title} />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{video.title}</h3>
+                    <p className="text-muted-foreground">{video.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -160,7 +407,7 @@ const MissionSection = () => {
 
 const ImpactSection = () => {
   return (
-    <section className="py-20 bg-secondary">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -224,22 +471,22 @@ const OurWorkSection = () => {
     {
       title: "Vidiyal Learning Center",
       description: " Vidiyal Learning Centre nurtures the potential of rural children by addressing foundational gaps in education. Through activity-based learning, mentoring, and emotional support, the program creates a safe and joyful environment where children can thrive academically, socially, and emotionally, laying the groundwork for a brighter future",
-      image: "/bkss.jpg",
+      image: "/home/4.jpg",
     },
     {
       title: "Vriksham Youth Leadership Program",
       description: "Vriksham empowers rural youth with the socio-emotional skills, career readiness, and confidence they need to succeed. This one-year hybrid program equips participants with tools for holistic growth, enabling them to overcome systemic challenges, embrace leadership roles, and achieve their aspirations. ",
-      image: "/health.jpeg",
+      image: "/home/3.jpg",
     },
     {
       title: "Vishwas",
       description: "Project Vishwas champions the cause of child safety and protection through awareness and training on the POCSO Act. By educating children, parents, and communities in both rural and urban areas, the project fosters safe spaces and ensures that every child understands their rights, boundaries, and the importance of personal safety.",
-      image: "/vrcnf.jpg"
+      image: "/home/5.jpg"
     },
   ]
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -291,12 +538,7 @@ const OurWorkSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button className="button-ripple">
-            View All Projects
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        
       </div>
     </section>
   )
@@ -307,27 +549,27 @@ const TestimonialsSection = () => {
     {
       quote:
         "The Tarunya Foundation's education program has transformed my life. I'm now pursuing my dream of becoming a teacher.",
-      author: "Priya S.",
+      author: "Aakash",
       role: "Education Program Beneficiary",
-      image: "/spcs.jpg",
+      image: "/Individuals/Aakash.jpeg",
     },
     {
       quote:
         "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
       author: "Rajesh K.",
       role: "Livelihood Program Participant",
-      image: "/spcs.jpg",
+      image: "/Individuals/Kavya-Bhola.jpeg",
     },
     {
       quote: "The women's empowerment program gave me the confidence and skills to become a community leader.",
       author: "Lakshmi M.",
       role: "Women Empowerment Program Graduate",
-      image: "/spcs.jpg",
+      image: "/Individuals/Anukathir-Surya.jpeg",
     },
   ]
 
   return (
-    <ParallaxSection bgImage="/bhyth.jpg" className="py-20 text-white">
+    <ParallaxSection bgImage="/scss.jpg" className="py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -356,7 +598,7 @@ const TestimonialsSection = () => {
               <Card className="bg-background/10 backdrop-blur-md border-none glass text-white max-w-2xl mx-auto">
                 <CardContent className="pt-6">
                   <div className="flex flex-col items-center text-center">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-primary">
+                    <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-primary-foreground">
                       <Image
                         src={testimonial.image || "/cnff.jpg"}
                         alt={testimonial.author}
@@ -364,9 +606,9 @@ const TestimonialsSection = () => {
                         className="object-cover"
                       />
                     </div>
-                    <p className="text-lg mb-4 italic">&quot;{testimonial.quote}&quot;</p>
+                    <p className="text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
                     <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-sm text-gray-300">{testimonial.role}</p>
+                    <p className="text-md text-gray-300">{testimonial.role}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -377,9 +619,8 @@ const TestimonialsSection = () => {
     </ParallaxSection>
   )
 }
-
 const PartnersSection = () => {
-  const partners = Array(4).fill("/glb.jpg")
+  const partners = Array(5).fill("/glb.jpg") // Example: 10 partner logos
 
   return (
     <section className="py-20 bg-[url('/bgg.jpg')] bg-cover bg-center">
@@ -401,36 +642,43 @@ const PartnersSection = () => {
             viewport={{ once: true }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            We are immensely grateful to these organizations for believing in us and supporting our cause by multiple means like mentorship support, workshops, material resources, curriculum collaborations, volunteer support and funding.
+            We are immensely grateful to these organizations for believing in us and supporting our cause.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="flex items-center justify-center"
-            >
-              <div className="relative w-32 h-32 grayscale hover:grayscale-0 transition-all duration-300">
+        {/* Horizontal Scrolling Container */}
+        <div className="overflow-hidden relative">
+          <div className="flex gap-36 animate-scroll-horizontal">
+            {/* First Set of Logos */}
+            {partners.map((partner, index) => (
+              <div key={index} className="flex-shrink-0 w-32 h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
                 <Image
                   src={partner || "/placeholder.svg"}
                   alt={`Partner ${index + 1}`}
-                  fill
+                  width={128}
+                  height={128}
                   className="object-contain"
                 />
               </div>
-            </motion.div>
-          ))}
+            ))}
+            {/* Second Set of Logos (Duplicated for Seamless Loop) */}
+            {partners.map((partner, index) => (
+              <div key={`${index}-copy`} className="flex-shrink-0 w-32 h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
+                <Image
+                  src={partner || "/placeholder.svg"}
+                  alt={`Partner ${index + 1}`}
+                  width={128}
+                  height={128}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   )
 }
-
 const CallToActionSection = () => {
   return (
     <section className="py-20 bg-primary text-primary-foreground">
