@@ -36,7 +36,7 @@ export const Loading = () => (
             ease: "easeInOut",
             delay: 0.2,
           }}
-          className="absolute inset-2 border-4 border-secondary"
+          className="absolute inset-2"
         />
         <motion.div
           animate={{
@@ -50,7 +50,7 @@ export const Loading = () => (
             ease: "easeInOut",
             delay: 0.4,
           }}
-          className="absolute inset-4 border-4 border-primary"
+          className="absolute inset-4 border-4 border-primary-foreground"
         />
       </div>
       <motion.p

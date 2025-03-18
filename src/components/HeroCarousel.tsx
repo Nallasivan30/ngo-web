@@ -10,10 +10,11 @@ const HeroCarousel = () => {
   const [isHovering, setIsHovering] = useState(false)
 
   const carouselImages = [
-    { src: "/scss.jpg", alt: "About hero background 1" },
-    { src: "/red.jpg", alt: "About hero background 2" },
-    { src: "/spcs.jpg", alt: "About hero background 3" },
-    { src: "/ida.jpg", alt: "About hero background 4" },
+    { src: "/slide/1.jpg", alt: "About hero background 1" },
+    { src: "/slide/2.jpg", alt: "About hero background 2" },
+    { src: "/slide/3.jpg", alt: "About hero background 3" },
+    { src: "/slide/4.jpg", alt: "About hero background 4" },
+    { src: "/slide/5.jpg", alt: "About hero background 4" },
   ]
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const HeroCarousel = () => {
     if (!isHovering) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % carouselImages.length)
-      }, 5000)
+      }, 3500)
       return () => clearInterval(interval)
     }
   }, [isHovering, carouselImages.length])
@@ -56,7 +57,7 @@ const HeroCarousel = () => {
             src={image.src} 
             alt={image.alt} 
             fill 
-            className="object-cover" 
+            className="object-cover object-[50%_30%]" 
             priority={index === 0}
           />
         </div>
@@ -67,7 +68,7 @@ const HeroCarousel = () => {
       
       {/* Hero Content */}
       <div 
-        className={`relative z-20 container mx-auto px-4 text-center text-white transition-opacity duration-500 ${
+        className={`relative z-20 container mx-auto px-4 text-center text-primary-foreground transition-opacity duration-500 ${
           isHovering ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -92,7 +93,7 @@ const HeroCarousel = () => {
       {/* Navigation Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-primary-foreground p-2 rounded-full transition-all"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
@@ -100,7 +101,7 @@ const HeroCarousel = () => {
       
       <button 
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/70 text-primary-foreground p-2 rounded-full transition-all"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
@@ -113,7 +114,7 @@ const HeroCarousel = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
-              currentSlide === index ? "bg-white scale-125" : "bg-white/50 hover:bg-white/70"
+              currentSlide === index ? "bg-primary-foreground scale-125" : "bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
