@@ -199,13 +199,13 @@ const TeamSection = () => {
       name: "Anita Choudhary​",
       role: "Co – Anchor",
       bio: "Anitha is an electronic engineer and a proud Young India Fellow. With a strong foundation in business consulting from her time at Deloitte Consulting Pvt Ltd, Anitha made a transformative shift towards working with rural children and youth. Her passion for designing learning experiences for behaviour change and life skills drives her to empower young minds, helping them realize their potential. Known for her strategic thinking and sharp people management skills, Anitha excels in crafting impactful learning programs that create lasting change. A dedicated mother, yoga enthusiast, and advocate for minimalism, she champions the importance of a balanced, healthy lifestyle.",
-      image: "/spcs.jpg",
+      image: "/Individuals/Students/Juhi-srivastava.jpeg",
     },
     {
       name: "Kaviarasi Mariappan",
       role: "Co – Anchor",
       bio: "A graduate with a Bachelor’s degree in Chemistry from a rural college, Kaviarasi’s mission is rooted in her own experiences and background. She specializes in designing and leading life-skills based experiential programs and workshops tailored for college students. She is a dedicated facilitator and an eloquent Tamil poet who also enjoys meditating and tailoring. Her academic achievements include being an alumna of the Young India Fellowship and the Mother Teresa Fellowship from Ashoka University, Haryana. Additionally, Kaviarasi is a Vriksh Fellow and a participant in Jagriti Yatra, underscoring her commitment towards community development.",
-      image: "/spcs.jpg",
+      image: "/Individuals/Students/Juhi-srivastava.jpeg",
     },
     
   ]

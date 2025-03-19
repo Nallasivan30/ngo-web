@@ -44,22 +44,27 @@ export default function Home() {
 }
 
 const HeroSection = () => {
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
-        <Image src="/home/1.jpg" alt="Hero background" fill className="object-cover object-[0%_40%]  style={{ objectPosition: 'right center' }} "  priority />
+      <motion.div style={{ y }} className="absolute inset-0 z-0 h-[80%] md:h-full">
+        <Image 
+          src="/home/1.jpg" 
+          alt="Hero background" 
+          fill 
+          className="object-cover object-[42%_10%] md:object-[50%_50%]"
+          priority 
+        />
         <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
+      <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground bottom-12 md:bottom-0">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 leading-tight"
         >
           Empowering Lives,
           <br />
@@ -84,16 +89,16 @@ const HeroSection = () => {
             <Link href={"/donate"}>Donate Now</Link>
           </Button>
           <Button size="lg" variant="outline" className="text-primary border-white hover:text-primary hover:bg-white/10 button-ripple">
-            Learn More
+            <Link href={"/about"}>Learn More</Link>
           </Button>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 const WhoAreWeSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="pt-0 pb-8 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -465,23 +470,25 @@ const ImpactSection = () => {
     </section>
   )
 }
-
 const OurWorkSection = () => {
   const projects = [
     {
       title: "Vidiyal Learning Center",
       description: " Vidiyal Learning Centre nurtures the potential of rural children by addressing foundational gaps in education. Through activity-based learning, mentoring, and emotional support, the program creates a safe and joyful environment where children can thrive academically, socially, and emotionally, laying the groundwork for a brighter future",
       image: "/home/4.jpg",
+      link:'/programs/vidiyal'
     },
     {
       title: "Vriksham Youth Leadership Program",
       description: "Vriksham empowers rural youth with the socio-emotional skills, career readiness, and confidence they need to succeed. This one-year hybrid program equips participants with tools for holistic growth, enabling them to overcome systemic challenges, embrace leadership roles, and achieve their aspirations. ",
       image: "/home/3.jpg",
+      link:'/programs/vylp'
     },
     {
       title: "Vishwas",
       description: "Project Vishwas champions the cause of child safety and protection through awareness and training on the POCSO Act. By educating children, parents, and communities in both rural and urban areas, the project fosters safe spaces and ensures that every child understands their rights, boundaries, and the importance of personal safety.",
-      image: "/home/5.jpg"
+      image: "/home/5.jpg",
+      link:'/programs/vishwa'
     },
   ]
 
@@ -530,7 +537,7 @@ const OurWorkSection = () => {
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <Button variant="outline" className="button-ripple">
-                    Learn More
+                    <Link href={project.link}>Learn More</Link>
                   </Button>
                 </div>
               }
@@ -543,33 +550,43 @@ const OurWorkSection = () => {
     </section>
   )
 }
-
 const TestimonialsSection = () => {
   const testimonials = [
     {
       quote:
-        "The Tarunya Foundation's education program has transformed my life. I'm now pursuing my dream of becoming a teacher.",
-      author: "Aakash",
-      role: "Education Program Beneficiary",
-      image: "/Individuals/Aakash.jpeg",
+        "During one of the reflective sessions, I realized that I have been underestimating myself and that led me to behave selfishly with everyone. I was surprised to see my friends support and empathize with me while holding space for me to learn. I am very strongly practicing Empathy and Commitment as my values. My English buddy call with Vishal anna is supporting me to improve my English Language skills and I am also learning punctuality from him.",
+      author: " Nandhini,  ",
+      role: "VLC Program Student",
+      image: "/Individuals/Students/Nandhini.jpg",
     },
     {
       quote:
-        "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
-      author: "Rajesh K.",
-      role: "Livelihood Program Participant",
-      image: "/Individuals/Kavya-Bhola.jpeg",
+        "Here we are not only learning skills but also ways of living life. I have started to understand the importance and ways of being a responsible citizen. I feel glad to see the progress I have made in my English skills. I feel confident speaking in English in a group. I am also being supported step by step to plan and work on my dream career. Through monthly calls, my mentor and I create a learning plan and curate tasks that will help me achieve my goals.",
+      author: "Pavithra",
+      role: "VYLP Student (B.A Economics)",
+      image: "/Individuals/Students/Pavithra.jpg",
     },
     {
-      quote: "The women's empowerment program gave me the confidence and skills to become a community leader.",
-      author: "Lakshmi M.",
-      role: "Women Empowerment Program Graduate",
-      image: "/Individuals/Anukathir-Surya.jpeg",
+      quote: "During the COVID-19 lock down, our children were tired of spending time at home watching television. Vidiyal Learning Centre supported them through this period by organizing sessions and activities at the Centre, encouraging reading books in the Vidiyal Library, practicing spoken English, sharpening their existing talents through practice at the center, and buttressing instructions in academic subjects for children unable to attend classes",
+      author: "Saroja.",
+      role: "Mother of VLC student Lalitha",
+      image: "/Individuals/Students/Saroja.png",
+    },
+    {
+      quote: "Volunteering with Tarunya has been one of the highlights of my year. It has been an absolute joy to interact and get to know the wonderful children of Tarunya. While I hope that I have been able to teach them a few things about polity and legal awareness, I am so grateful to the kids for all the positivity, fun, and inquisitiveness they bring to every session.",
+      author: "Juhi Srivastava,",
+      role: "VLC Volunteer Facilitator",
+      image: "/Individuals/Students/Juhi-srivastava.jpeg",
+    },
+    {
+      quote: "It was a very significant learning journey for me. Through this internship, I was able to identify my strengths and weaknesses more clearly. It improved my confidence and also increased my awareness about the community and challenges associated with it. I am grateful to both akkas for guiding at every step to make the most out of the internship",
+      author: "Karthick.",
+      role: "Community Library Intern",
+      image: "/Individuals/Students/Karthick.jpg",
     },
   ]
-
   return (
-    <ParallaxSection bgImage="/scss.jpg" className="py-20 text-white">
+    <ParallaxSection bgImage="/Community-Library.jpg" className="py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -586,7 +603,7 @@ const TestimonialsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto text-sm md:text-base"
           >
             Hear from the individuals whose lives have been changed by our programs.
           </motion.p>
@@ -606,7 +623,7 @@ const TestimonialsSection = () => {
                         className="object-cover"
                       />
                     </div>
-                    <p className="text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
+                    <p className="text-sm md:text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
                     <p className="font-bold">{testimonial.author}</p>
                     <p className="text-md text-gray-300">{testimonial.role}</p>
                   </div>
@@ -617,10 +634,10 @@ const TestimonialsSection = () => {
         />
       </div>
     </ParallaxSection>
-  )
+  );
 }
 const PartnersSection = () => {
-  const partners = Array(5).fill("/glb.jpg") // Example: 10 partner logos
+  const partners = Array(5).fill("/glb.jpg"); 
 
   return (
     <section className="py-20 bg-[url('/bgg.jpg')] bg-cover bg-center">
@@ -648,10 +665,10 @@ const PartnersSection = () => {
 
         {/* Horizontal Scrolling Container */}
         <div className="overflow-hidden relative">
-          <div className="flex gap-36 animate-scroll-horizontal">
+          <div className="flex gap-12 md:gap-28 animate-scroll-horizontal">
             {/* First Set of Logos */}
             {partners.map((partner, index) => (
-              <div key={index} className="flex-shrink-0 w-32 h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
+              <div key={index} className="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
                 <Image
                   src={partner || "/placeholder.svg"}
                   alt={`Partner ${index + 1}`}
@@ -663,7 +680,7 @@ const PartnersSection = () => {
             ))}
             {/* Second Set of Logos (Duplicated for Seamless Loop) */}
             {partners.map((partner, index) => (
-              <div key={`${index}-copy`} className="flex-shrink-0 w-32 h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
+              <div key={`${index}-copy`} className="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-4 grayscale hover:grayscale-0 transition-all duration-300">
                 <Image
                   src={partner || "/placeholder.svg"}
                   alt={`Partner ${index + 1}`}
@@ -677,8 +694,8 @@ const PartnersSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 const CallToActionSection = () => {
   return (
     <section className="py-20 bg-primary text-primary-foreground">
@@ -711,10 +728,10 @@ const CallToActionSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button size="lg" className="bg-white text-primary hover:bg-gray-100 button-ripple">
-              Donate Now
+               <Link href={"/donate"}>Donate Now</Link>
             </Button>
             <Button size="lg" variant="outline" className="text-primary border-white hover:bg-white/10 button-ripple">
-              Volunteer
+              <Link href={"/volunteer"}>Volunteer</Link>
             </Button>
           </motion.div>
         </div>
@@ -722,4 +739,3 @@ const CallToActionSection = () => {
     </section>
   )
 }
-
