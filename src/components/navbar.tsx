@@ -22,9 +22,8 @@ const navItems = [
       { name: "Project Vishwa", href: "/programs/vishwa" },
     ],
   },
-  { name: "Projects", href: "/projects" },
-  { name: "Events", href: "/events" },
-  { name: "Blog", href: "/blog" },
+  { name: "Volunteer", href: "/volunteer" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ]
 

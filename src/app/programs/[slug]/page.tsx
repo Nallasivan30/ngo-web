@@ -39,8 +39,8 @@ const programsData = {
       { label: "Mentorship", value: 10, color: "#065f46" },
     ],
     goals: [
-      "To create a non-judgeental,reliable, and progressive learning environment",
-      "To build awareness about existing career opportunities and to support them build necessary skills and knowledge to pursue their dreams",
+      "To create a non-judgemental, reliable, and progressive learning environment",
+      "To build awareness about existing career opportunities and to support them build necessary skills and knowledge to pursue their dreams ",
       "To forge effective habits and a learning mindset that would enable them to become self-reliant and make informed decisions in life",
       "To build the ability to reflect and be self-aware leading to enhanced relationship with self, family and others",
       "To cultivate a broader understanding of diverse perspectives and enhance their world view through exposure and awareness",
@@ -49,22 +49,22 @@ const programsData = {
       "Our VYLP program has transformed the lives of thousands of young individuals who are now leading positive change in themselves. Many of our graduates have gone on to pursue higher education, start social enterprises, and become advocates for social justice.",
     testimonials: [
       {
-        quote: "VYLP has completely changed my perspective on leadership. I've gained the confidence to speak up and make a difference in my community.",
-        author: "Priya S.",
-        role: "VYLP Cohort 2 Graduate",
-        image: "/Individuals/Aakash.jpeg",
-      },
-      {
-        quote: "Before joining VYLP, I had no clear direction for my future. Now, I have both the skills and vision to pursue my goals.",
-        author: "Karthik R.",
+        quote: "During the first two days of the residential camp, I was wondering what they were doing but slowly I became a part of it. In those five days they gave some basic but very important lessons about life. We are being taught many different skills through online and office sessions. The in-person office workshops have helped me to improve my communication and teamwork skills. Our regular monthly calls provide a space for me to reflect how my month went and set goals for the upcoming month. Sessions on social challenges and current affairs builds my general knowledge. As I am a Tamil medium student the weekly English classes are helping me a lot to improve the language and pushes me to try harder.",
+        author: "Alex",
         role: "VYLP Cohort 1 Graduate",
-        image: "/Individuals/Kavya-Bhola.jpeg",
+        image: "/Individuals/Students/Abishek.jpg",
       },
       {
-        quote: "The mentorship I received through VYLP was invaluable. My mentor helped me navigate personal challenges while also guiding my career path.",
-        author: "Divya M.",
-        role: "VYLP Cohort 3 Participant",
-        image: "/Individuals/Anukathir-Surya.jpeg",
+        quote: "I find VYLP very helpful. I have been educated about different types of competitive examinations and career opportunities which I was totally unaware of before. I am currently figuring out what is most suitable for me through my monthly calls. I'm learning the basics of English language grammar and trying to speak in English. I also learnt how to practice values and be a volunteer in every life situation",
+        author: "Vijay Kumar",
+        role: "VYLP Cohort 1 Graduate",
+        image: "/Individuals/Students/vijay-kumar.jpg",
+      },
+      {
+        quote: "The encouragement provided throughout VYLP has been instrumental in my journey, particularly in guiding me to apply for opportunities such as Teach for India and the Bhumi Fellowship. These experiences have profoundly shaped my personal and professional growth. Anitha akka’s mentorship has been a beacon of inspiration for me. Through her guidance, I have come to understand how I should approach my career and make informed decisions.",
+        author: "Sundar",
+        role: "VYLP Cohort 2 Graduate",
+        image: "/Individuals/Students/Sundar.png",
       },
     ],
   },
@@ -98,22 +98,22 @@ const programsData = {
       "The Vidiyal Learning Centers have significantly improved educational outcomes for underprivileged children. Our students have shown remarkable improvement in academic performance, with many going on to pursue higher education and secure better employment opportunities.",
     testimonials: [
       {
-        quote: "The Vidiyal Learning Center gave my child access to quality education we couldn't afford otherwise. Now she dreams of becoming a doctor.",
-        author: "Meena K.",
-        role: "Parent of Vidiyal Student",
-        image: "/Individuals/Aakash.jpeg",
+        quote: "I am very interested in playing Ultimate Frisbee. Initially, I hated the appreciation circle that happens after the game where we encourage and appreciate others and ask for forgiveness for our mistakes on the ground. I thought the appreciation circle was a waste of time and we could play one match within that time. However, I realized how listening to others in the circle slowly built my values and I started treating others with respect and asked sorry for my mistakes which I have never done in my life.",
+        author: "Abhisekh,",
+        role: "8th Grade, VLC Kid",
+        image: "/Individuals/Students/Abhishek.jpg",
       },
       {
-        quote: "The digital literacy program at Vidiyal opened a whole new world of possibilities for me. I can now use computers with confidence.",
-        author: "Arjun T.",
-        role: "Vidiyal Student",
-        image: "/Individuals/Kavya-Bhola.jpeg",
+        quote: "I experienced the magic of encouraging others when they are trying something new and how much value it is adding to them at that significant time. While playing frisbee, when someone missed the catch and At VLC session, when my friends try to speak in English, I always encourage them. I practice this as one of my core values in my life.",
+        author: "Gokula Selvan,",
+        role: "7th grade, VLC Kid",
+        image: "/Individuals/Students/Gokula-Selvan.jpeg",
       },
       {
-        quote: "Teaching at Vidiyal has been the most rewarding experience. Seeing these children grow and learn despite challenges is truly inspiring.",
-        author: "Shalini P.",
-        role: "Vidiyal Teacher",
-        image: "/Individuals/Anukathir-Surya.jpeg",
+        quote: "My favourite time is when I discover something new. Doing experiments at Prayogshala sessions in VLC laid the foundation for that. I always like to spend my time experimenting on things and to read different books at Vidiyal Library. I learned how to use time effectively and I try to practice that in my life.",
+        author: "Durga,",
+        role: "8th grade, VLC Kid",
+        image: "/Individuals/Students/Durga.jpg",
       },
     ],
   },
@@ -385,7 +385,7 @@ const TestimonialsSection = ({ program }: { program: any }) => {
   // Use program.testimonials if available, otherwise use default testimonials
   const testimonials = program.testimonials 
   return (
-    <ParallaxSection bgImage="/scss.jpg" className="py-20 text-white">
+    <ParallaxSection bgImage="/Community-Library.jpg" className="py-20 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -421,7 +421,7 @@ const TestimonialsSection = ({ program }: { program: any }) => {
                         className="object-cover"
                       />
                     </div>
-                    <p className="text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
+                    <p className="text-sm md:text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
                     <p className="font-bold">{testimonial.author}</p>
                     <p className="text-md text-gray-300">{testimonial.role}</p>
                   </div>
@@ -584,13 +584,13 @@ const WhyVYLPSection = ({  }: { program: any }) => (
           Why <span className="text-primary">VYLP</span>?
         </h2>
         <div className="w-24 h-1 bg-primary mx-auto"></div>
-        <p className="text-xl text-muted-foreground my-8 w-[80%] mx-auto">
+        <p className="text-sm md:text-xl text-muted-foreground my-8 w-[80%] mx-auto">
           In an effort to address the pressing challenges faced by rural youth, Tarunya Foundation conducted an extensive online survey involving over 300 young individuals from the southern districts of Tamil Nadu. The survey aimed to delve into the barriers they face in accessing quality higher education and their preparedness for entering the competitive job market.
         </p>
-        <p className="text-xl text-muted-foreground w-[80%] mx-auto">
+        <p className="text-sm md:text-xl text-muted-foreground w-[80%] mx-auto">
           The findings were both revealing and thought-provoking. The responses highlighted significant gaps in career guidance, socio-emotional skills, and exposure to opportunities, all of which are critical for personal and professional growth. These insights emphasized the urgent need for a structured program to address these challenges comprehensively.
         </p>
-        <p className="text-xl text-foreground w-[80%] mx-auto mt-8">
+        <p className="text-sm md:text-xl text-foreground w-[80%] mx-auto mt-8">
           Motivated by these findings, we designed and launched the <span className='font-bold'>Vriksham Youth Leadership Program (VYLP)</span>.
         </p>
         

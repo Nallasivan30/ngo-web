@@ -13,7 +13,7 @@ interface CarouselProps {
   interval?: number
 }
 
-export const Carousel = ({ items, autoPlay = true, interval = 5000 }: CarouselProps) => {
+export const Carousel = ({ items, autoPlay = true, interval = 7000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
 
