@@ -4,42 +4,74 @@ import { useState, useEffect } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, } from "@/components/ui/card"
-import { Carousel } from "@/components/carousels"
 import { AnimatedCard } from "@/components/animated-card"
-import { ParallaxSection } from "@/components/parallax-section"
 import { Loading } from "@/components/loading"
 import { Book, Heart, Users, Briefcase, Award } from "lucide-react"
 import RootLayout from "@/components/layout"
 import Link from "next/link"
-
-
+import { TestimonialsSection, Testimonial } from "@/components/testimonial" // Import the component and type
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800)
+    const timer = setTimeout(() => setIsLoading(false), 1400)
     return () => clearTimeout(timer)
   }, [])
+
+  // Define the testimonials data
+  const testimonials: Testimonial[] = [
+    {
+      quote:
+        "During one of the reflective sessions, I realized that I have been underestimating myself and that led me to behave selfishly with everyone. I was surprised to see my friends support and empathize with me while holding space for me to learn. I am very strongly practicing Empathy and Commitment as my values. My English buddy call with Vishal anna is supporting me to improve my English Language skills and I am also learning punctuality from him.",
+      author: "Nandhini",
+      role: "VLC Program Student",
+      image: "/Individuals/Students/Nandhini.jpg",
+    },
+    {
+      quote:
+        "Here we are not only learning skills but also ways of living life. I have started to understand the importance and ways of being a responsible citizen. I feel glad to see the progress I have made in my English skills. I feel confident speaking in English in a group. I am also being supported step by step to plan and work on my dream career. Through monthly calls, my mentor and I create a learning plan and curate tasks that will help me achieve my goals.",
+      author: "Pavithra",
+      role: "VYLP Student (B.A Economics)",
+      image: "/Individuals/Students/Pavithra.jpg",
+    },
+    {
+      quote: "During the COVID-19 lock down, our children were tired of spending time at home watching television. Vidiyal Learning Centre supported them through this period by organizing sessions and activities at the Centre, encouraging reading books in the Vidiyal Library, practicing spoken English, sharpening their existing talents through practice at the center, and buttressing instructions in academic subjects for children unable to attend classes",
+      author: "Saroja",
+      role: "Mother of VLC student Lalitha",
+      image: "/Individuals/Students/Saroja.png",
+    },
+    {
+      quote: "Volunteering with Tarunya has been one of the highlights of my year. It has been an absolute joy to interact and get to know the wonderful children of Tarunya. While I hope that I have been able to teach them a few things about polity and legal awareness, I am so grateful to the kids for all the positivity, fun, and inquisitiveness they bring to every session.",
+      author: "Juhi Srivastava",
+      role: "VLC Volunteer Facilitator",
+      image: "/Individuals/Students/Juhi-srivastava.jpeg",
+    },
+    {
+      quote: "It was a very significant learning journey for me. Through this internship, I was able to identify my strengths and weaknesses more clearly. It improved my confidence and also increased my awareness about the community and challenges associated with it. I am grateful to both akkas for guiding at every step to make the most out of the internship",
+      author: "Karthick",
+      role: "Community Library Intern",
+      image: "/Individuals/Students/Karthick.jpg",
+    },
+  ]
 
   if (isLoading) return <Loading />
 
   return (
-<RootLayout>
+    <RootLayout>
       <div className="overflow-hidden">
         <HeroSection />
-        <WhoAreWeSection /> {/* Added Who Are We Section */}
-        <ChallengesSection /> {/* Added Challenges Section */}
+        <WhoAreWeSection />
+        <ChallengesSection />
         <MissionSection />
         <OurWorkSection />
         <ImpactSection />
-        <TestimonialsSection />
-        <YouTubeSection/>
+        <TestimonialsSection testimonials={testimonials} /> {/* Pass testimonials as props */}
+        <YouTubeSection />
         <PartnersSection />
         <CallToActionSection />
       </div>
- </RootLayout>
+    </RootLayout>
   )
 }
 
@@ -550,92 +582,92 @@ const OurWorkSection = () => {
     </section>
   )
 }
-const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      quote:
-        "During one of the reflective sessions, I realized that I have been underestimating myself and that led me to behave selfishly with everyone. I was surprised to see my friends support and empathize with me while holding space for me to learn. I am very strongly practicing Empathy and Commitment as my values. My English buddy call with Vishal anna is supporting me to improve my English Language skills and I am also learning punctuality from him.",
-      author: " Nandhini,  ",
-      role: "VLC Program Student",
-      image: "/Individuals/Students/Nandhini.jpg",
-    },
-    {
-      quote:
-        "Here we are not only learning skills but also ways of living life. I have started to understand the importance and ways of being a responsible citizen. I feel glad to see the progress I have made in my English skills. I feel confident speaking in English in a group. I am also being supported step by step to plan and work on my dream career. Through monthly calls, my mentor and I create a learning plan and curate tasks that will help me achieve my goals.",
-      author: "Pavithra",
-      role: "VYLP Student (B.A Economics)",
-      image: "/Individuals/Students/Pavithra.jpg",
-    },
-    {
-      quote: "During the COVID-19 lock down, our children were tired of spending time at home watching television. Vidiyal Learning Centre supported them through this period by organizing sessions and activities at the Centre, encouraging reading books in the Vidiyal Library, practicing spoken English, sharpening their existing talents through practice at the center, and buttressing instructions in academic subjects for children unable to attend classes",
-      author: "Saroja.",
-      role: "Mother of VLC student Lalitha",
-      image: "/Individuals/Students/Saroja.png",
-    },
-    {
-      quote: "Volunteering with Tarunya has been one of the highlights of my year. It has been an absolute joy to interact and get to know the wonderful children of Tarunya. While I hope that I have been able to teach them a few things about polity and legal awareness, I am so grateful to the kids for all the positivity, fun, and inquisitiveness they bring to every session.",
-      author: "Juhi Srivastava,",
-      role: "VLC Volunteer Facilitator",
-      image: "/Individuals/Students/Juhi-srivastava.jpeg",
-    },
-    {
-      quote: "It was a very significant learning journey for me. Through this internship, I was able to identify my strengths and weaknesses more clearly. It improved my confidence and also increased my awareness about the community and challenges associated with it. I am grateful to both akkas for guiding at every step to make the most out of the internship",
-      author: "Karthick.",
-      role: "Community Library Intern",
-      image: "/Individuals/Students/Karthick.jpg",
-    },
-  ]
-  return (
-    <ParallaxSection bgImage="/Community-Library.jpg" className="py-20 text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            Lives <span className="text-primary">Transformed</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-sm md:text-base"
-          >
-            Hear from the individuals whose lives have been changed by our programs.
-          </motion.p>
-        </div>
+// const TestimonialsSection = () => {
+//   const testimonials = [
+//     {
+//       quote:
+//         "During one of the reflective sessions, I realized that I have been underestimating myself and that led me to behave selfishly with everyone. I was surprised to see my friends support and empathize with me while holding space for me to learn. I am very strongly practicing Empathy and Commitment as my values. My English buddy call with Vishal anna is supporting me to improve my English Language skills and I am also learning punctuality from him.",
+//       author: " Nandhini,  ",
+//       role: "VLC Program Student",
+//       image: "/Individuals/Students/Nandhini.jpg",
+//     },
+//     {
+//       quote:
+//         "Here we are not only learning skills but also ways of living life. I have started to understand the importance and ways of being a responsible citizen. I feel glad to see the progress I have made in my English skills. I feel confident speaking in English in a group. I am also being supported step by step to plan and work on my dream career. Through monthly calls, my mentor and I create a learning plan and curate tasks that will help me achieve my goals.",
+//       author: "Pavithra",
+//       role: "VYLP Student (B.A Economics)",
+//       image: "/Individuals/Students/Pavithra.jpg",
+//     },
+//     {
+//       quote: "During the COVID-19 lock down, our children were tired of spending time at home watching television. Vidiyal Learning Centre supported them through this period by organizing sessions and activities at the Centre, encouraging reading books in the Vidiyal Library, practicing spoken English, sharpening their existing talents through practice at the center, and buttressing instructions in academic subjects for children unable to attend classes",
+//       author: "Saroja.",
+//       role: "Mother of VLC student Lalitha",
+//       image: "/Individuals/Students/Saroja.png",
+//     },
+//     {
+//       quote: "Volunteering with Tarunya has been one of the highlights of my year. It has been an absolute joy to interact and get to know the wonderful children of Tarunya. While I hope that I have been able to teach them a few things about polity and legal awareness, I am so grateful to the kids for all the positivity, fun, and inquisitiveness they bring to every session.",
+//       author: "Juhi Srivastava,",
+//       role: "VLC Volunteer Facilitator",
+//       image: "/Individuals/Students/Juhi-srivastava.jpeg",
+//     },
+//     {
+//       quote: "It was a very significant learning journey for me. Through this internship, I was able to identify my strengths and weaknesses more clearly. It improved my confidence and also increased my awareness about the community and challenges associated with it. I am grateful to both akkas for guiding at every step to make the most out of the internship",
+//       author: "Karthick.",
+//       role: "Community Library Intern",
+//       image: "/Individuals/Students/Karthick.jpg",
+//     },
+//   ]
+//   return (
+//     <ParallaxSection bgImage="/Community-Library.jpg" className="py-20 text-white">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-16">
+//           <motion.h2
+//             initial={{ opacity: 0, y: 20 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5 }}
+//             viewport={{ once: true }}
+//             className="text-3xl md:text-4xl font-bold mb-4"
+//           >
+//             Lives <span className="text-primary">Transformed</span>
+//           </motion.h2>
+//           <motion.p
+//             initial={{ opacity: 0, y: 20 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.2 }}
+//             viewport={{ once: true }}
+//             className="max-w-2xl mx-auto text-sm md:text-base"
+//           >
+//             Hear from the individuals whose lives have been changed by our programs.
+//           </motion.p>
+//         </div>
 
-        <Carousel
-          items={testimonials.map((testimonial, index) => (
-            <div key={index} className="px-4">
-              <Card className="bg-background/10 backdrop-blur-md border-none glass text-white max-w-2xl mx-auto">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-primary-foreground">
-                      <Image
-                        src={testimonial.image || "/cnff.jpg"}
-                        alt={testimonial.author}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <p className="text-sm md:text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
-                    <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-md text-gray-300">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        />
-      </div>
-    </ParallaxSection>
-  );
-}
+//         <Carousel
+//           items={testimonials.map((testimonial, index) => (
+//             <div key={index} className="px-4">
+//               <Card className="bg-background/10 backdrop-blur-md border-none glass text-white max-w-2xl mx-auto">
+//                 <CardContent className="pt-6">
+//                   <div className="flex flex-col items-center text-center">
+//                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-primary-foreground">
+//                       <Image
+//                         src={testimonial.image || "/cnff.jpg"}
+//                         alt={testimonial.author}
+//                         fill
+//                         className="object-cover"
+//                       />
+//                     </div>
+//                     <p className="text-sm md:text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
+//                     <p className="font-bold">{testimonial.author}</p>
+//                     <p className="text-md text-gray-300">{testimonial.role}</p>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </div>
+//           ))}
+//         />
+//       </div>
+//     </ParallaxSection>
+//   );
+// }
 const PartnersSection = () => {
   const partners = Array(5).fill("/glb.jpg"); 
 

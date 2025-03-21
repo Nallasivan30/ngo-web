@@ -24,7 +24,7 @@ export default function Donate() {
 
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800)
+    const timer = setTimeout(() => setIsLoading(false), 1400)
     return () => clearTimeout(timer)
   }, [])
 
