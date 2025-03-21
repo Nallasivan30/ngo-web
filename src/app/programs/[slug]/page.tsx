@@ -7,14 +7,13 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ParallaxSection } from "@/components/parallax-section"
 import { YouTubeVideo } from "@/components/youtube-video"
 import { PieChart } from "@/components/pie-chart"
 import { Loading } from "@/components/loading"
-import { Users, Book, Shield } from "lucide-react"
-import RootLayout from "@/components/layout"
+import { Users, Book, Shield, ZoomIn, X } from "lucide-react"
 import Link from "next/link"
-import { Carousel } from "@/components/carousels" // Make sure you have this component imported
+import { TestimonialsSection } from "@/components/testimonial"
+import RootLayout from "@/components/layout"
 
 // Program data
 const programsData = {
@@ -45,23 +44,24 @@ const programsData = {
       "To build the ability to reflect and be self-aware leading to enhanced relationship with self, family and others",
       "To cultivate a broader understanding of diverse perspectives and enhance their world view through exposure and awareness",
     ],
-    impact:
-      "Our VYLP program has transformed the lives of thousands of young individuals who are now leading positive change in themselves. Many of our graduates have gone on to pursue higher education, start social enterprises, and become advocates for social justice.",
     testimonials: [
       {
-        quote: "During the first two days of the residential camp, I was wondering what they were doing but slowly I became a part of it. In those five days they gave some basic but very important lessons about life. We are being taught many different skills through online and office sessions. The in-person office workshops have helped me to improve my communication and teamwork skills. Our regular monthly calls provide a space for me to reflect how my month went and set goals for the upcoming month. Sessions on social challenges and current affairs builds my general knowledge. As I am a Tamil medium student the weekly English classes are helping me a lot to improve the language and pushes me to try harder.",
+        quote:
+          "During the first two days of the residential camp, I was wondering what they were doing but slowly I became a part of it. In those five days they gave some basic but very important lessons about life. We are being taught many different skills through online and office sessions. The in-person office workshops have helped me to improve my communication and teamwork skills. Our regular monthly calls provide a space for me to reflect how my month went and set goals for the upcoming month. Sessions on social challenges and current affairs builds my general knowledge. As I am a Tamil medium student the weekly English classes are helping me a lot to improve the language and pushes me to try harder.",
         author: "Alex",
         role: "VYLP Cohort 1 Graduate",
         image: "/Individuals/Students/Abishek.jpg",
       },
       {
-        quote: "I find VYLP very helpful. I have been educated about different types of competitive examinations and career opportunities which I was totally unaware of before. I am currently figuring out what is most suitable for me through my monthly calls. I'm learning the basics of English language grammar and trying to speak in English. I also learnt how to practice values and be a volunteer in every life situation",
+        quote:
+          "I find VYLP very helpful. I have been educated about different types of competitive examinations and career opportunities which I was totally unaware of before. I am currently figuring out what is most suitable for me through my monthly calls. I'm learning the basics of English language grammar and trying to speak in English. I also learnt how to practice values and be a volunteer in every life situation",
         author: "Vijay Kumar",
         role: "VYLP Cohort 1 Graduate",
         image: "/Individuals/Students/vijay-kumar.jpg",
       },
       {
-        quote: "The encouragement provided throughout VYLP has been instrumental in my journey, particularly in guiding me to apply for opportunities such as Teach for India and the Bhumi Fellowship. These experiences have profoundly shaped my personal and professional growth. Anitha akka’s mentorship has been a beacon of inspiration for me. Through her guidance, I have come to understand how I should approach my career and make informed decisions.",
+        quote:
+          "The encouragement provided throughout VYLP has been instrumental in my journey, particularly in guiding me to apply for opportunities such as Teach for India and the Bhumi Fellowship. These experiences have profoundly shaped my personal and professional growth. Anitha akka's mentorship has been a beacon of inspiration for me. Through her guidance, I have come to understand how I should approach my career and make informed decisions.",
         author: "Sundar",
         role: "VYLP Cohort 2 Graduate",
         image: "/Individuals/Students/Sundar.png",
@@ -71,17 +71,15 @@ const programsData = {
   vidiyal: {
     title: "Vidiyal Learning Center",
     subtitle: "Providing quality education to underprivileged children",
-    description:
-      "The Vidiyal Learning Center focuses on providing quality education to underprivileged children who lack access to proper educational resources. Through our centers, we offer supplementary education, digital literacy, and life skills training to help children reach their full potential.",
-    image: "/vylp.jpg",
+    description: (
+      <div className="gap-4">
+        <p>Vidiyal Learning Centers are safe learning spaces established within the village to supplement the sub-par mainstream education that rural children receive through low-resource government schools. Children are engaged in a range of activities pertaining to a holistic development curriculum during after school hours and over weekends. Additionally, each child is supported through individualized mentorship to navigate through their personal lives with courage and confidence.</p>
+        <p>Vidiyal Learning Centers are safe learning spaces established within the village to supplement the sub-par mainstream education that rural children receive through low-resource government schools. Children are engaged in a range of activities pertaining to a holistic development curriculum during after school hours and over weekends. Additionally, each child is supported through individualized mentorship to navigate through their personal lives with courage and confidence.</p>
+      </div>
+    ),
+    image: "/vlc/vlcgft.jpg",
     icon: <Book className="h-8 w-8 text-primary" />,
     videoId: "pC9MImqH0XE", // Example YouTube video ID
-    stats: [
-      { label: "Children Educated", value: 250 },
-      { label: "Learning Centers", value: 5 },
-      { label: "Teachers Trained", value: 15 },
-      { label: "Communities Served", value: 10 },
-    ],
     chartData: [
       { label: "Academic Support", value: 45, color: "#0ea5e9" },
       { label: "Digital Literacy", value: 25, color: "#0284c7" },
@@ -94,23 +92,32 @@ const programsData = {
       "Achieve 90% transition rate to higher education",
       "Develop innovative teaching methodologies for resource-constrained settings",
     ],
-    impact:
-      "The Vidiyal Learning Centers have significantly improved educational outcomes for underprivileged children. Our students have shown remarkable improvement in academic performance, with many going on to pursue higher education and secure better employment opportunities.",
+    vlcModel: {
+      title: "VLC Model",
+      image: "/vlc/vlcmdl.png",
+    },
+    keyComponents: {
+      title: "Key Components",
+      image: "/vlc/vlckey.png",
+    },
     testimonials: [
       {
-        quote: "I am very interested in playing Ultimate Frisbee. Initially, I hated the appreciation circle that happens after the game where we encourage and appreciate others and ask for forgiveness for our mistakes on the ground. I thought the appreciation circle was a waste of time and we could play one match within that time. However, I realized how listening to others in the circle slowly built my values and I started treating others with respect and asked sorry for my mistakes which I have never done in my life.",
+        quote:
+          "I am very interested in playing Ultimate Frisbee. Initially, I hated the appreciation circle that happens after the game where we encourage and appreciate others and ask for forgiveness for our mistakes on the ground. I thought the appreciation circle was a waste of time and we could play one match within that time. However, I realized how listening to others in the circle slowly built my values and I started treating others with respect and asked sorry for my mistakes which I have never done in my life.",
         author: "Abhisekh,",
         role: "8th Grade, VLC Kid",
         image: "/Individuals/Students/Abhishek.jpg",
       },
       {
-        quote: "I experienced the magic of encouraging others when they are trying something new and how much value it is adding to them at that significant time. While playing frisbee, when someone missed the catch and At VLC session, when my friends try to speak in English, I always encourage them. I practice this as one of my core values in my life.",
+        quote:
+          "I experienced the magic of encouraging others when they are trying something new and how much value it is adding to them at that significant time. While playing frisbee, when someone missed the catch and At VLC session, when my friends try to speak in English, I always encourage them. I practice this as one of my core values in my life.",
         author: "Gokula Selvan,",
         role: "7th grade, VLC Kid",
         image: "/Individuals/Students/Gokula-Selvan.jpeg",
       },
       {
-        quote: "My favourite time is when I discover something new. Doing experiments at Prayogshala sessions in VLC laid the foundation for that. I always like to spend my time experimenting on things and to read different books at Vidiyal Library. I learned how to use time effectively and I try to practice that in my life.",
+        quote:
+          "My favourite time is when I discover something new. Doing experiments at Prayogshala sessions in VLC laid the foundation for that. I always like to spend my time experimenting on things and to read different books at Vidiyal Library. I learned how to use time effectively and I try to practice that in my life.",
         author: "Durga,",
         role: "8th grade, VLC Kid",
         image: "/Individuals/Students/Durga.jpg",
@@ -143,23 +150,25 @@ const programsData = {
       "Establish sustainable livelihood opportunities for 10,000 families",
       "Reduce child vulnerability by 50% in target communities",
     ],
-    impact:
-      "Project Vishwa has created significant positive change in communities, with reduced child vulnerability, improved economic conditions for families, and empowered women taking leadership roles. Our holistic approach has led to sustainable development and resilient communities.",
+
     testimonials: [
       {
-        quote: "Project Vishwa's women empowerment program gave me the confidence and skills to become a community leader.",
+        quote:
+          "Project Vishwa's women empowerment program gave me the confidence and skills to become a community leader.",
         author: "Lakshmi M.",
         role: "Women Empowerment Program Graduate",
         image: "/Individuals/Anukathir-Surya.jpeg",
       },
       {
-        quote: "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
+        quote:
+          "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
         author: "Rajesh K.",
         role: "Livelihood Program Participant",
         image: "/Individuals/Kavya-Bhola.jpeg",
       },
       {
-        quote: "The child protection initiatives have transformed our village. Our children now have safe spaces to learn and play.",
+        quote:
+          "The child protection initiatives have transformed our village. Our children now have safe spaces to learn and play.",
         author: "Sunita D.",
         role: "Community Leader",
         image: "/Individuals/Aakash.jpeg",
@@ -176,7 +185,7 @@ export default function ProgramPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800)
+    const timer = setTimeout(() => setIsLoading(false), 1400)
     return () => clearTimeout(timer)
   }, [])
 
@@ -201,16 +210,30 @@ export default function ProgramPage() {
     return (
       <RootLayout>
         <div className="overflow-hidden">
-          <VYLPHeroSection program={program} />
-          <WhyVYLPSection program={program} />
-          <VYLPOverviewSection program={program} />
-          <VideoSection program={program} />
-          <ObjectivesSection program={program} />
-          <ProgramFeaturesSection program={program} />
-          <TestimonialsSection program={program} />
-          <CohortShowcaseSection />
-          <GetInvolvedSection />
-        </div>
+        <HeroSection program={program} />
+        <WhyVYLPSection program={program} />
+        <VYLPOverviewSection program={program} />
+        <VideoSection program={program} />
+        <ObjectivesSection program={program} />
+        <ProgramFeaturesSection program={program} />
+        <TestimonialsSection testimonials={program.testimonials} />
+        <CohortShowcaseSection />
+      </div>
+      </RootLayout>
+    )
+  }
+
+  if (slug === "vidiyal") {
+    return (
+      <RootLayout>
+        <div className="overflow-hidden">
+        <HeroSection program={program} />
+        <OverviewSection program={program} />
+        <VLCModelSection program={program} />
+        <VideoSection program={program} />
+        <TestimonialsSection testimonials={program.testimonials} />
+        <GoalsSection program={program} />
+      </div>
       </RootLayout>
     )
   }
@@ -218,14 +241,13 @@ export default function ProgramPage() {
   return (
     <RootLayout>
       <div className="overflow-hidden">
-        <HeroSection program={program} />
-        <OverviewSection program={program} />
-        <VideoSection program={program} />
-        <ImpactSection program={program} />
-        <TestimonialsSection program={program} />
-        <GoalsSection program={program} />
-        <GetInvolvedSection />
-      </div>
+      <HeroSection program={program} />
+      <OverviewSection program={program} />
+      <VideoSection program={program} />
+      <TestimonialsSection testimonials={program.testimonials} />
+      <GoalsSection program={program} />
+      
+    </div>
     </RootLayout>
   )
 }
@@ -284,21 +306,7 @@ const OverviewSection = ({ program }: { program: any }) => (
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Program Overview</h2>
           <p className="text-muted-foreground mb-6 text-lg leading-relaxed">{program.description}</p>
-          <div className="grid grid-cols-2 gap-4 mt-8">
-            {program.stats.map((stat: any, index: number) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-4 bg-secondary rounded-lg"
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">{stat.value.toLocaleString()}</h3>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
+
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -316,6 +324,176 @@ const OverviewSection = ({ program }: { program: any }) => (
     </div>
   </section>
 )
+
+const VLCModelSection = ({ program }: { program: any }) => {
+  const [showModelModal, setShowModelModal] = useState(false)
+  const [showComponentsModal, setShowComponentsModal] = useState(false)
+
+  return (
+    <section className="py-20 bg-secondary/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-4"
+          >
+            Understanding <span className="text-primary">Vidiyal Learning Centers</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground max-w-2xl mx-auto"
+          >
+            Explore our approach and methodology for creating impactful learning environments
+          </motion.p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* VLC Model Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            onClick={() => setShowModelModal(true)}
+            className="cursor-pointer group"
+          >
+            <Card className="overflow-hidden h-full border-2 border-transparent transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/vlc/vlcmdl.png"
+                  alt="VLC Model"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div className="flex items-center justify-center">
+                  
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-2xl font-bold">{program.vlcModel.title}</h3>
+                  <div className="flex items-center text-primary text-sm font-medium">
+                    <span>Click to view</span>
+                    <ZoomIn className="ml-1 h-4 w-4" />
+                  </div>
+                </div>
+                
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* Key Components Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            onClick={() => setShowComponentsModal(true)}
+            className="cursor-pointer group"
+          >
+            <Card className="overflow-hidden h-full border-2 border-transparent transition-all duration-300 group-hover:border-primary/20 group-hover:shadow-lg">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/vlc/vlckey.png"
+                  alt="Key Components"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div className="flex items-center justify-center">
+                    
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-2xl font-bold">{program.keyComponents.title}</h3>
+                  <div className="flex items-center text-primary text-sm font-medium">
+                    <span>Click to view</span>
+                    <ZoomIn className="ml-1 h-4 w-4" />
+                  </div>
+                </div>
+                
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+
+        {/* VLC Model Modal */}
+        {showModelModal && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-2xl font-bold">{program.vlcModel.title}</h3>
+                  <Button variant="ghost" size="icon" onClick={() => setShowModelModal(false)} className="rounded-full">
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
+
+                <div className="relative h-[400px] mb-6">
+                  <Image
+                    src={program.vlcModel.image || "/placeholder.svg"}
+                    alt={program.vlcModel.title}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+        {/* Key Components Modal */}
+        {showComponentsModal && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-2xl font-bold">{program.keyComponents.title}</h3>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setShowComponentsModal(false)}
+                    className="rounded-full"
+                  >
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
+
+                <div className="relative h-[440px] mb-6">
+                  <Image
+                    src={program.keyComponents.image}
+                    alt={program.keyComponents.title}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
 
 const VideoSection = ({ program }: { program: any }) => (
   <section className="py-20 bg-secondary">
@@ -352,88 +530,6 @@ const VideoSection = ({ program }: { program: any }) => (
     </div>
   </section>
 )
-
-const ImpactSection = ({ program }: { program: any }) => (
-  <ParallaxSection bgImage="/placeholder.svg" className="py-20 text-white">
-    <div className="container mx-auto px-4">
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-6"
-        >
-          Our <span className="text-primary">Impact</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-xl leading-relaxed"
-        >
-          {program.impact}
-        </motion.p>
-      </div>
-    </div>
-  </ParallaxSection>
-)
-
-// New Testimonials Section that accepts program as prop
-const TestimonialsSection = ({ program }: { program: any }) => {
-  // Use program.testimonials if available, otherwise use default testimonials
-  const testimonials = program.testimonials 
-  return (
-    <ParallaxSection bgImage="/Community-Library.jpg" className="py-20 text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            Lives <span className="text-primary">Transformed</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
-            Hear from the individuals whose lives have been changed by our programs.
-          </motion.p>
-        </div>
-        <Carousel
-          items={testimonials.map((testimonial : any, index:any) => (
-            <div key={index} className="px-4">
-              <Card className="bg-background/10 backdrop-blur-md border-none glass text-white max-w-2xl mx-auto">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-primary-foreground">
-                      <Image
-                        src={testimonial.image || "/cnff.jpg"}
-                        alt={testimonial.author}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <p className="text-sm md:text-xl mb-4 italic">&quot;{testimonial.quote}&quot;</p>
-                    <p className="font-bold">{testimonial.author}</p>
-                    <p className="text-md text-gray-300">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        />
-      </div>
-    </ParallaxSection>
-  )
-}
 
 const GoalsSection = ({ program }: { program: any }) => (
   <section className="py-20 bg-background">
@@ -484,93 +580,7 @@ const GoalsSection = ({ program }: { program: any }) => (
   </section>
 )
 
-const GetInvolvedSection = () => (
-  <section className="py-20 bg-primary text-primary-foreground">
-    <div className="container mx-auto px-4 text-center">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold mb-4"
-      >
-        Join Us in Making a Difference
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="max-w-2xl mx-auto mb-8 text-lg"
-      >
-        Together, we can create lasting change. Your support enables us to expand our programs and reach more
-        communities in need.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        viewport={{ once: true }}
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-      >
-        <Button asChild className="bg-white text-primary hover:bg-gray-100 button-ripple">
-          <Link href="/donate">Donate Now</Link>
-        </Button>
-        <Button
-          asChild
-          variant="outline"
-          className="text-white border-white bg-transparent hover:bg-white/10 button-ripple"
-        >
-          <Link href="#">Volunteer</Link>
-        </Button>
-      </motion.div>
-    </div>
-  </section>
-)
-
-const VYLPHeroSection = ({ program }: { program: any }) => (
-  <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-primary">
-    <div className="absolute inset-0 z-0">
-      <Image
-        src={program.image || "/placeholder.svg"}
-        alt={program.title}
-        fill
-        className="object-cover object-[50%_30%] opacity-80"
-        priority
-      />
-    </div>
-    <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-4 flex justify-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-          {program.icon}
-        </div>
-      </motion.div>
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-6xl font-bold mb-4"
-      >
-        {program.title}
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xl max-w-2xl mx-auto"
-      >
-        {program.subtitle}
-      </motion.p>
-    </div>
-  </section>
-)
-
-const WhyVYLPSection = ({  }: { program: any }) => (
+const WhyVYLPSection = ({}: { program: any }) => (
   <section className="py-24 bg-secondary relative overflow-hidden">
     <div className="container mx-auto px-4">
       <motion.div
@@ -585,18 +595,24 @@ const WhyVYLPSection = ({  }: { program: any }) => (
         </h2>
         <div className="w-24 h-1 bg-primary mx-auto"></div>
         <p className="text-sm md:text-xl text-muted-foreground my-8 w-[80%] mx-auto">
-          In an effort to address the pressing challenges faced by rural youth, Tarunya Foundation conducted an extensive online survey involving over 300 young individuals from the southern districts of Tamil Nadu. The survey aimed to delve into the barriers they face in accessing quality higher education and their preparedness for entering the competitive job market.
+          In an effort to address the pressing challenges faced by rural youth, Tarunya Foundation conducted an
+          extensive online survey involving over 300 young individuals from the southern districts of Tamil Nadu. The
+          survey aimed to delve into the barriers they face in accessing quality higher education and their preparedness
+          for entering the competitive job market.
         </p>
         <p className="text-sm md:text-xl text-muted-foreground w-[80%] mx-auto">
-          The findings were both revealing and thought-provoking. The responses highlighted significant gaps in career guidance, socio-emotional skills, and exposure to opportunities, all of which are critical for personal and professional growth. These insights emphasized the urgent need for a structured program to address these challenges comprehensively.
+          The findings were both revealing and thought-provoking. The responses highlighted significant gaps in career
+          guidance, socio-emotional skills, and exposure to opportunities, all of which are critical for personal and
+          professional growth. These insights emphasized the urgent need for a structured program to address these
+          challenges comprehensively.
         </p>
         <p className="text-sm md:text-xl text-foreground w-[80%] mx-auto mt-8">
-          Motivated by these findings, we designed and launched the <span className='font-bold'>Vriksham Youth Leadership Program (VYLP)</span>.
+          Motivated by these findings, we designed and launched the{" "}
+          <span className="font-bold">Vriksham Youth Leadership Program (VYLP)</span>.
         </p>
-        
       </motion.div>
 
-       <div className="grid md:grid-cols-3 gap-12">
+      <div className="grid md:grid-cols-3 gap-12">
         {[
           {
             title: "Holistic Development",
@@ -632,10 +648,11 @@ const WhyVYLPSection = ({  }: { program: any }) => (
             <p className="text-muted-foreground">{item.description}</p>
           </motion.div>
         ))}
-      </div> 
+      </div>
     </div>
   </section>
 )
+
 const VYLPOverviewSection = ({ program }: { program: any }) => (
   <section className="py-24 bg-secondary/30 relative">
     <div className="container mx-auto px-4">
@@ -673,7 +690,9 @@ const VYLPOverviewSection = ({ program }: { program: any }) => (
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Program Duration</h3>
                   <p className="text-muted-foreground">
-                    VYLP offers a transformative one-year journey with lifelong alumni support. Delivered through a dynamic hybrid model, the program combines online sessions, monthly in-person workshops, and immersive residential camps to ensure holistic development and sustained impact.
+                    VYLP offers a transformative one-year journey with lifelong alumni support. Delivered through a
+                    dynamic hybrid model, the program combines online sessions, monthly in-person workshops, and
+                    immersive residential camps to ensure holistic development and sustained impact.
                   </p>
                 </div>
               </div>
@@ -687,8 +706,6 @@ const VYLPOverviewSection = ({ program }: { program: any }) => (
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -801,7 +818,7 @@ const ObjectivesSection = ({ program }: { program: any }) => (
   </section>
 )
 
-const ProgramFeaturesSection = ({ }: { program: any }) => (
+const ProgramFeaturesSection = ({}: { program: any }) => (
   <section className="py-24 bg-secondary relative overflow-hidden">
     <div className="container mx-auto px-4">
       <motion.div
@@ -811,9 +828,7 @@ const ProgramFeaturesSection = ({ }: { program: any }) => (
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground dark:text-white">
-          Program Features
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground dark:text-white">Program Features</h2>
         <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
         <p className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
           Our comprehensive program includes various components designed to provide a holistic learning experience.
@@ -824,45 +839,45 @@ const ProgramFeaturesSection = ({ }: { program: any }) => (
         {[
           {
             title: "Residential Exposure Camps",
-            description: "We conduct two residential camps (Induction and Mid-point) to give an intense in-person learning experience to our students. These camps also provide an exposure to the host organization and a new geography which greatly enhances their worldview.",
-            icon: '/icons/camp.png',
+            description:
+              "We conduct two residential camps (Induction and Mid-point) to give an intense in-person learning experience to our students. These camps also provide an exposure to the host organization and a new geography which greatly enhances their worldview.",
+            icon: "/icons/camp.png",
             color: "from-blue-50 to-blue-100 dark:from-blue-300 dark:to-blue-200",
-            
           },
           {
             title: "Experiential Holistic Curriculum",
-            description: "All our modules are designed to be activity-based following a learning-practicing-applying approach. Our curriculum places equal emphasis on life essentials aspects like socio-emotional and interpersonal skills, and technical aspects like career readiness, communication, presentation and so on",
-            icon: '/icons/vri.png',
+            description:
+              "All our modules are designed to be activity-based following a learning-practicing-applying approach. Our curriculum places equal emphasis on life essentials aspects like socio-emotional and interpersonal skills, and technical aspects like career readiness, communication, presentation and so on",
+            icon: "/icons/vri.png",
             color: "from-green-50 to-green-100 dark:from-green-300 dark:to-green-200",
-            
           },
           {
             title: "In-person Monthly Workshops",
-            description: "Every month offline workshops are conducted at our office premises in Alangulam to cover critical modules like interpersonal skill, gender sensitization and the like which are more effective and impactful in an in-person setting.",
-            icon: '/icons/conf.png',
+            description:
+              "Every month offline workshops are conducted at our office premises in Alangulam to cover critical modules like interpersonal skill, gender sensitization and the like which are more effective and impactful in an in-person setting.",
+            icon: "/icons/conf.png",
             color: "from-purple-50 to-purple-100 dark:from-purple-300 dark:to-purple-200",
-            
           },
           {
             title: "Exclusive One-On-One Mentorship",
-            description: "We place utmost importance on providing individualized support to each student through exclusive monthly mentorship calls with a dedicated mentor who not only guides the student through career planning but also supports in navigating through personal challenges.",
-            icon: '/icons/pplmt.png',
+            description:
+              "We place utmost importance on providing individualized support to each student through exclusive monthly mentorship calls with a dedicated mentor who not only guides the student through career planning but also supports in navigating through personal challenges.",
+            icon: "/icons/pplmt.png",
             color: "from-orange-50 to-orange-100 dark:from-orange-300 dark:to-orange-200",
-           
           },
           {
             title: "Regular Weekly Online Sessions",
-            description: "We run weekly online sessions throughout the year covering important modules like English Language, Financial Literacy, Self-development, and many more. These modules ensure continuous learning and reflection that enhances the knowledge and skill set of the students.",
-            icon: '/icons/vrcmt.png',
+            description:
+              "We run weekly online sessions throughout the year covering important modules like English Language, Financial Literacy, Self-development, and many more. These modules ensure continuous learning and reflection that enhances the knowledge and skill set of the students.",
+            icon: "/icons/vrcmt.png",
             color: "from-pink-50 to-pink-100 dark:from-pink-300 dark:to-pink-200",
-           
           },
           {
             title: "Interaction with Experts/Leaders",
-            description: "We regularly invite subject matter experts and leaders from different sectors to interact with and inspire our students. Holding conversations with external speakers not only broadens their perspective but also boosts their confidence and self-esteem.",
-            icon: '/icons/stng.png',
+            description:
+              "We regularly invite subject matter experts and leaders from different sectors to interact with and inspire our students. Holding conversations with external speakers not only broadens their perspective but also boosts their confidence and self-esteem.",
+            icon: "/icons/stng.png",
             color: "from-teal-50 to-teal-100 dark:from-teal-300 dark:to-teal-200",
-            
           },
         ].map((feature, index) => (
           <motion.div
@@ -874,16 +889,16 @@ const ProgramFeaturesSection = ({ }: { program: any }) => (
             className={`rounded-2xl p-8 bg-gradient-to-br ${feature.color} hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
           >
             <div className={`w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-6`}>
-              <Image src={feature.icon} alt={feature.title} width={40} height={40}/>
+              <Image src={feature.icon || "/placeholder.svg"} alt={feature.title} width={40} height={40} />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground dark:text-white">{feature.title}</h3>
-            <p className="text-muted-foreground ">{feature.description}</p>
+            <p className="text-muted-foreground">{feature.description}</p>
           </motion.div>
         ))}
       </div>
     </div>
   </section>
-);
+)
 
 const CohortShowcaseSection = () => (
   <section className="py-24 bg-background relative overflow-hidden">
@@ -973,4 +988,3 @@ const CohortShowcaseSection = () => (
     </div>
   </section>
 )
-
