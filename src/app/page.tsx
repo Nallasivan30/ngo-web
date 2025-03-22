@@ -120,7 +120,7 @@ const HeroSection = () => {
           <Button size="lg" className="button-ripple">
             <Link href={"/donate"}>Donate Now</Link>
           </Button>
-          <Button size="lg" variant="outline" className="text-primary border-white hover:text-primary hover:bg-white/10 button-ripple">
+          <Button size="lg" variant="outline" className="text-primary  hover:text-primary hover:bg-white/10 button-ripple">
             <Link href={"/about"}>Learn More</Link>
           </Button>
         </motion.div>
@@ -265,27 +265,57 @@ const YouTubeSection = () => {
   // YouTube video IDs - replace with actual video IDs
   const videos = [
     {
-      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      id: "c5W3q4ZcZ_w", 
       title: "Tarunya Foundation - Empowering Lives",
       description: "Learn about our mission to transform communities through education and empowerment initiatives."
     },
     {
-      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      id: "mYkwjgDRsvA", 
       title: "Our Impact Journey",
       description: "See how we've made a difference in the lives of thousands of children and families."
     },
     {
-      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      id: "h9dpNyLvlH8", 
       title: "Vidiyal Learning Center",
       description: "Discover how we're bridging educational gaps in rural communities through our learning centers."
     },
     {
-      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      id: "dkRBgdcsTPU", 
       title: "Vriksham Youth Leadership",
       description: "Watch how our youth leadership program is creating tomorrow's community leaders."
     },
     {
-      id: "dQw4w9WgXcQ", // Replace with actual video ID
+      id: "WpOtU-bFvsc", 
+      title: "Project Vishwas",
+      description: "Learn about our child safety initiative and how it's protecting vulnerable children."
+    },
+    {
+      id: "CTK_v4LAPPw", 
+      title: "Vidiyal Learning Center",
+      description: "Discover how we're bridging educational gaps in rural communities through our learning centers."
+    },
+    {
+      id: "Cc1s6_Zc5Pg", 
+      title: "Vriksham Youth Leadership",
+      description: "Watch how our youth leadership program is creating tomorrow's community leaders."
+    },
+    {
+      id: "PKfuRAFUfS4", 
+      title: "Project Vishwas",
+      description: "Learn about our child safety initiative and how it's protecting vulnerable children."
+    },
+    {
+      id: "kma_k6vezzM", 
+      title: "Vidiyal Learning Center",
+      description: "Discover how we're bridging educational gaps in rural communities through our learning centers."
+    },
+    {
+      id: "d5NR1oMKPLs", 
+      title: "Vriksham Youth Leadership",
+      description: "Watch how our youth leadership program is creating tomorrow's community leaders."
+    },
+    {
+      id: "nX4qmTHHyBs", 
       title: "Project Vishwas",
       description: "Learn about our child safety initiative and how it's protecting vulnerable children."
     },

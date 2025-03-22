@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -23,7 +22,6 @@ const programsData = {
     description:
       "The Vriksham Youth Leadership Program (VYLP) is the flagship initiative of Tarunya Foundation, created to empower rural youth in Tamil Nadu with the skills, awareness, and confidence to build meaningful careers and lead fulfilling lives. Launched in 2022, the program addresses critical systemic challenges faced by rural college students, such as limited exposure, socio-economic barriers, and foundational educational gaps",
     image: "/vylp.jpg",
-    icon: <Users className="h-8 w-8 text-primary" />,
     videoId: "T2naXIbHKa8", // Example YouTube video ID
     stats: [
       { label: "Youth Trained", value: 100 },
@@ -78,8 +76,7 @@ const programsData = {
       </div>
     ),
     image: "/vlc/vlcgft.jpg",
-    icon: <Book className="h-8 w-8 text-primary" />,
-    videoId: "pC9MImqH0XE", // Example YouTube video ID
+    videoId: "lVaavexQbiU", 
     chartData: [
       { label: "Academic Support", value: 45, color: "#0ea5e9" },
       { label: "Digital Literacy", value: 25, color: "#0284c7" },
@@ -125,53 +122,115 @@ const programsData = {
     ],
   },
   vishwa: {
-    title: "Project Vishwa",
-    subtitle: "Empowering communities, protecting children",
+    title: "Project Vishwas",
+    subtitle: "Empowering children, parents, and communities against child sexual abuse",
     description:
-      "Project Vishwa is our comprehensive community development initiative that focuses on child protection, women empowerment, and sustainable livelihoods. We work closely with communities to create safe environments for children and provide opportunities for families to improve their socio-economic status.",
-    image: "/vylp.jpg",
-    icon: <Shield className="h-8 w-8 text-primary" />,
-    videoId: "1kUE0BZtTRc", // Example YouTube video ID
-    stats: [
-      { label: "Children Protected", value: 15000 },
-      { label: "Women Empowered", value: 7500 },
-      { label: "Families Supported", value: 5000 },
-      { label: "Villages Covered", value: 100 },
-    ],
+      "At Tarunya Foundation, we believe that every child deserves a safe and nurturing environment to grow, learn, and thrive. Recognizing the increasing need for awareness about child safety, we have launched Project Vishwas to empower children, parents, educators, and communities with knowledge and tools to combat child sexual abuse (CSA).",
+    image: "/cvrimg.jpg",
+    videoId: "1kUE0BZtTRc",
     chartData: [
-      { label: "Child Protection", value: 40, color: "#fbbf24" },
-      { label: "Women Empowerment", value: 30, color: "#f59e0b" },
-      { label: "Livelihood Support", value: 20, color: "#d97706" },
-      { label: "Health & Nutrition", value: 10, color: "#b45309" },
-    ],
-    goals: [
-      "Create child-friendly communities in 200 villages",
-      "Empower 15,000 women through skill development and entrepreneurship",
-      "Establish sustainable livelihood opportunities for 10,000 families",
-      "Reduce child vulnerability by 50% in target communities",
+      { label: "Child Education", value: 40, color: "#fbbf24" },
+      { label: "Adult Training", value: 30, color: "#f59e0b" },
+      { label: "Resource Development", value: 20, color: "#d97706" },
+      { label: "Community Outreach", value: 10, color: "#b45309" },
     ],
 
     testimonials: [
       {
         quote:
-          "Project Vishwa's women empowerment program gave me the confidence and skills to become a community leader.",
-        author: "Lakshmi M.",
-        role: "Women Empowerment Program Graduate",
+          "The training provided by Project Vishwas has transformed how our school approaches child safety. Our teachers are now better equipped to create a safe environment for all students.",
+        author: "Priya Sharma",
+        role: "School Principal",
         image: "/Individuals/Anukathir-Surya.jpeg",
       },
       {
         quote:
-          "Thanks to the skill development initiative, I was able to start my own small business and support my family.",
-        author: "Rajesh K.",
-        role: "Livelihood Program Participant",
+          "As a parent, I now feel more confident discussing personal safety with my children. The resources and guidance from Project Vishwas have been invaluable.",
+        author: "Rajesh Kumar",
+        role: "Parent",
         image: "/Individuals/Kavya-Bhola.jpeg",
       },
       {
         quote:
-          "The child protection initiatives have transformed our village. Our children now have safe spaces to learn and play.",
-        author: "Sunita D.",
+          "The community workshops have opened up important conversations that were previously taboo. We're seeing a real shift in how our community approaches child protection.",
+        author: "Sunita Devi",
         role: "Community Leader",
         image: "/Individuals/Aakash.jpeg",
+      },
+    ],
+    whyItMatters: [
+      {
+        title: "High Prevalence of CSA",
+        description:
+          "More than 53% of Indian children report experiencing some form of sexual abuse. Many cases go unreported due to lack of awareness or fear of stigma.",
+      },
+      {
+        title: "Knowledge Gaps",
+        description:
+          "Many stakeholders, including parents and educators, are unaware of their rights and responsibilities under the POCSO Act.",
+      },
+      {
+        title: "A Need for Action",
+        description:
+          "By educating communities, we aim to create informed advocates who can prevent, recognize, and respond to CSA effectively.",
+      },
+    ],
+    offerings: [
+      {
+        title: "Awareness Workshops for Schools",
+        description:
+          "Interactive sessions for students aged 6-16 years, teaching them about body safety, boundaries, and good touch vs. bad touch. Specialized training for teachers and school staff on identifying and addressing CSA.",
+        icon: "/placeholder.svg?height=64&width=64",
+      },
+      {
+        title: "Community Training Programs",
+        description:
+          "Seminars and discussions for parents, local leaders, and community members to build a collective understanding of child protection.",
+        icon: "/placeholder.svg?height=64&width=64",
+      },
+      {
+        title: "Resources and Toolkits",
+        description:
+          "Customized handouts, posters, and videos to reinforce learning. Easy access to helpline information and reporting mechanisms.",
+        icon: "/placeholder.svg?height=64&width=64",
+      },
+      {
+        title: "Ongoing Support",
+        description:
+          "Follow-up sessions and resources to ensure sustained awareness and vigilance. Partnerships with local authorities and organizations for comprehensive support.",
+        icon: "/placeholder.svg?height=64&width=64",
+      },
+    ],
+    approach: [
+      {
+        title: "Engagement",
+        description:
+          "We use interactive activities like puppet shows, role-plays, and storytelling to make sessions relatable and impactful.",
+      },
+      {
+        title: "Empathy",
+        description: "We create safe, non-judgmental spaces for participants to share and learn.",
+      },
+      {
+        title: "Empowerment",
+        description:
+          "We equip individuals with actionable strategies to protect children and address abuse effectively.",
+      },
+    ],
+    impact: [
+      {
+        title: "Empowered Children",
+        description:
+          "By teaching children their rights and how to seek help, we enable them to take ownership of their safety.",
+      },
+      {
+        title: "Informed Adults",
+        description:
+          "Educators and parents become advocates for change, ensuring children are supported at every step.",
+      },
+      {
+        title: "Stronger Communities",
+        description: "Awareness leads to collective action, creating environments where children feel safe and valued.",
       },
     ],
   },
@@ -218,6 +277,7 @@ export default function ProgramPage() {
         <ProgramFeaturesSection program={program} />
         <TestimonialsSection testimonials={program.testimonials} />
         <CohortShowcaseSection />
+        <GetInvolvedSection />
       </div>
       </RootLayout>
     )
@@ -233,22 +293,36 @@ export default function ProgramPage() {
         <VideoSection program={program} />
         <TestimonialsSection testimonials={program.testimonials} />
         <GoalsSection program={program} />
+        <GetInvolvedSection />
       </div>
       </RootLayout>
     )
   }
 
+  if (slug === "vishwa") {
+    return (
+      <RootLayout>
+        <div className="overflow-hidden">
+          <HeroSection program={program} />
+          <WhyItMattersSection program={program} />
+          <VishwasOverviewSection program={program} />
+          <WhatWeOfferSection program={program} />
+          <OurApproachSection program={program} />
+          <ImpactHighlightsSection program={program} />
+        </div>
+      </RootLayout>
+    )
+  }
+
   return (
-    <RootLayout>
-      <div className="overflow-hidden">
+    <div className="overflow-hidden">
       <HeroSection program={program} />
       <OverviewSection program={program} />
       <VideoSection program={program} />
       <TestimonialsSection testimonials={program.testimonials} />
       <GoalsSection program={program} />
-      
+      <GetInvolvedSection />
     </div>
-    </RootLayout>
   )
 }
 
@@ -306,7 +380,6 @@ const OverviewSection = ({ program }: { program: any }) => (
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Program Overview</h2>
           <p className="text-muted-foreground mb-6 text-lg leading-relaxed">{program.description}</p>
-
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -371,11 +444,6 @@ const VLCModelSection = ({ program }: { program: any }) => {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <div className="flex items-center justify-center">
-                  
-                  </div>
-                </div>
               </div>
               <CardContent className="p-6">
                 <div className="flex justify-between items-center mb-4">
@@ -385,7 +453,6 @@ const VLCModelSection = ({ program }: { program: any }) => {
                     <ZoomIn className="ml-1 h-4 w-4" />
                   </div>
                 </div>
-                
               </CardContent>
             </Card>
           </motion.div>
@@ -407,11 +474,6 @@ const VLCModelSection = ({ program }: { program: any }) => {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <div className="flex items-center justify-center">
-                    
-                  </div>
-                </div>
               </div>
               <CardContent className="p-6">
                 <div className="flex justify-between items-center mb-4">
@@ -444,7 +506,7 @@ const VLCModelSection = ({ program }: { program: any }) => {
                   </Button>
                 </div>
 
-                <div className="relative h-[400px] mb-6">
+                <div className="relative h-[480px] mb-6">
                   <Image
                     src={program.vlcModel.image || "/placeholder.svg"}
                     alt={program.vlcModel.title}
@@ -452,10 +514,12 @@ const VLCModelSection = ({ program }: { program: any }) => {
                     className="object-cover rounded-lg"
                   />
                 </div>
+                <p className="text-muted-foreground text-lg leading-relaxed">{program.vlcModel.details}</p>
               </div>
             </motion.div>
           </div>
         )}
+
         {/* Key Components Modal */}
         {showComponentsModal && (
           <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
@@ -478,7 +542,7 @@ const VLCModelSection = ({ program }: { program: any }) => {
                   </Button>
                 </div>
 
-                <div className="relative h-[440px] mb-6">
+                <div className="relative h-[480px] mb-6">
                   <Image
                     src={program.keyComponents.image}
                     alt={program.keyComponents.title}
@@ -486,6 +550,8 @@ const VLCModelSection = ({ program }: { program: any }) => {
                     className="object-cover rounded-lg"
                   />
                 </div>
+
+                <p className="text-muted-foreground text-lg leading-relaxed">{program.keyComponents.details}</p>
               </div>
             </motion.div>
           </div>
@@ -580,6 +646,49 @@ const GoalsSection = ({ program }: { program: any }) => (
   </section>
 )
 
+const GetInvolvedSection = () => (
+  <section className="py-20 bg-primary text-primary-foreground">
+    <div className="container mx-auto px-4 text-center">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold mb-4"
+      >
+        Join Us in Making a Difference
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="max-w-2xl mx-auto mb-8 text-lg"
+      >
+        Together, we can create lasting change. Your support enables us to expand our programs and reach more
+        communities in need.
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
+        className="flex flex-col sm:flex-row gap-4 justify-center"
+      >
+        <Button asChild className="bg-white text-primary hover:bg-gray-100 button-ripple">
+          <Link href="/donate">Donate Now</Link>
+        </Button>
+        <Button
+          asChild
+          variant="outline"
+          className="text-white border-white bg-transparent hover:bg-white/10 button-ripple"
+        >
+          <Link href="/get-involved/volunteer">Volunteer</Link>
+        </Button>
+      </motion.div>
+    </div>
+  </section>
+)
 const WhyVYLPSection = ({}: { program: any }) => (
   <section className="py-24 bg-secondary relative overflow-hidden">
     <div className="container mx-auto px-4">
@@ -652,7 +761,6 @@ const WhyVYLPSection = ({}: { program: any }) => (
     </div>
   </section>
 )
-
 const VYLPOverviewSection = ({ program }: { program: any }) => (
   <section className="py-24 bg-secondary/30 relative">
     <div className="container mx-auto px-4">
@@ -988,3 +1096,208 @@ const CohortShowcaseSection = () => (
     </div>
   </section>
 )
+
+
+const WhyItMattersSection = ({ program }: { program: any }) => (
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Why This Project <span className="text-primary">Matters</span>
+        </h2>
+        <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{program.description}</p>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          This initiative is designed to create widespread awareness of the Protection of Children from Sexual Offences
+          (POCSO) Act, 2012, ensuring that everyone understands their role in safeguarding children from harm, creating
+          a culture of safety and openness and upholding their &apos;Vishwas&apos;.
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {program.whyItMatters.map((item: any, index: number) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="bg-primary/10 rounded-xl p-8 hover:shadow-lg transition-all duration-300"
+          >
+            <h3 className="text-xl font-bold mb-4 text-primary">{item.title}</h3>
+            <p className="text-gray-700">{item.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
+const VishwasOverviewSection = ({ program }: { program: any }) => (
+  <section className="py-20 bg-secondary">
+    <div className="container mx-auto px-4">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">What We Aim to Achieve</h2>
+          <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+            Project Vishwas focuses on educating children, training adults, and building safer communities. Over the
+            next year, we aim to reach 10,000 individuals across 200 schools and communities in Hyderabad, creating a
+            ripple effect of awareness and change.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
+          <div className="relative z-10">
+            <div className="bg-white p-6 rounded-2xl shadow-lg">
+              <h3 className="text-xl font-bold mb-4">Program Focus Areas</h3>
+              <PieChart data={program.chartData} title="" className="bg-transparent" />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+)
+
+const WhatWeOfferSection = ({ program }: { program: any }) => (
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          What We <span className="text-primary">Offer</span>
+        </h2>
+        <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Our comprehensive approach includes a range of programs and resources designed to educate, empower, and
+          support all stakeholders in child protection.
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {program.offerings.map((offering: any, index: number) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
+          >
+            <div className="p-8">
+              <div className="flex items-start">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-primary"></div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-3 text-primary">{offering.title}</h3>
+                  <p className="text-muted-foreground">{offering.description}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
+const OurApproachSection = ({ program }: { program: any }) => (
+  <section className="py-20 bg-primary text-background">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">How We Work</h2>
+        <div className="w-24 h-1 bg-white mx-auto mb-8"></div>
+        <p className="text-lg max-w-3xl mx-auto">Our approach is built on engagement, empathy, and empowerment.</p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {program.approach.map((item: any, index: number) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="bg-primary/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300"
+          >
+            <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+            <p className="text-white/80">{item.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
+const ImpactHighlightsSection = ({ program }: { program: any }) => (
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Impact <span className="text-primary">Highlights</span>
+        </h2>
+        <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Through our work, we&apos;re creating lasting change in how communities approach child safety.
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {program.impact.map((item: any, index: number) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-purple-100 rounded-xl transform rotate-1"></div>
+            <Card className="relative z-10 h-full border-none shadow-md">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold mb-4 text-primary">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
