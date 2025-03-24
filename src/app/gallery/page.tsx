@@ -22,7 +22,7 @@ const galleryItems = [
     id: 2,
     title: "College Workshop",
     category: "outreach",
-    image: "/College-Workshops.jpg",
+    image: "/other/College-Workshops.jpg",
     date: "March 2023",
   },
   {
@@ -376,7 +376,7 @@ const HeroSection = () => {
               }}
               className="absolute left-[10%] top-[10%] w-40 h-60 rounded-lg overflow-hidden shadow-xl"
             >
-              <Image src="/home/1.jpg" alt="Gallery preview" fill className="object-cover" />
+              <Image src="/vlc/vlcplr.jpg" alt="Gallery preview" fill className="object-cover" />
             </motion.div>
 
             <motion.div
@@ -391,7 +391,7 @@ const HeroSection = () => {
               }}
               className="absolute left-[30%] top-[5%] w-48 h-40 rounded-lg overflow-hidden shadow-xl"
             >
-              <Image src="/Individuals/Anukathir-Surya.jpeg" alt="Gallery preview" fill className="object-cover" />
+              <Image src="/vylp/vc2.jpg" alt="Gallery preview" fill className="object-cover" />
             </motion.div>
 
             <motion.div
@@ -406,7 +406,7 @@ const HeroSection = () => {
               }}
               className="absolute right-[30%] top-[15%] w-36 h-48 rounded-lg overflow-hidden shadow-xl"
             >
-              <Image src="/Individuals/Deepak-Dennison.jpeg" alt="Gallery preview" fill className="object-cover" />
+              <Image src="/slide/5.jpg" alt="Gallery preview" fill className="object-cover" />
             </motion.div>
 
             <motion.div
@@ -421,7 +421,7 @@ const HeroSection = () => {
               }}
               className="absolute right-[10%] top-[5%] w-44 h-52 rounded-lg overflow-hidden shadow-xl"
             >
-              <Image src="/home/1.jpg" alt="Gallery preview" fill className="object-cover" />
+              <Image src="/other/others3.jpg" alt="Gallery preview" fill className="object-cover" />
             </motion.div>
           </div>
         </motion.div>

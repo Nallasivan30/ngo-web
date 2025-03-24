@@ -48,7 +48,7 @@ const programsData = {
           "During the first two days of the residential camp, I was wondering what they were doing but slowly I became a part of it. In those five days they gave some basic but very important lessons about life. We are being taught many different skills through online and office sessions. The in-person office workshops have helped me to improve my communication and teamwork skills. Our regular monthly calls provide a space for me to reflect how my month went and set goals for the upcoming month. Sessions on social challenges and current affairs builds my general knowledge. As I am a Tamil medium student the weekly English classes are helping me a lot to improve the language and pushes me to try harder.",
         author: "Alex",
         role: "VYLP Cohort 1 Graduate",
-        image: "/Individuals/Students/Abishek.jpg",
+        image: "/Individuals/Students/Abhishek.jpg",
       },
       {
         quote:
@@ -399,11 +399,11 @@ const OverviewSection = ({ program }: { program: any }) => (
 )
 
 const VLCModelSection = ({ program }: { program: any }) => {
-  const [showModelModal, setShowModelModal] = useState(false)
-  const [showComponentsModal, setShowComponentsModal] = useState(false)
+  const [showModelModal, setShowModelModal] = useState(false);
+  const [showComponentsModal, setShowComponentsModal] = useState(false);
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section className="py-12 md:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
@@ -488,78 +488,89 @@ const VLCModelSection = ({ program }: { program: any }) => {
             </Card>
           </motion.div>
         </div>
-
         {/* VLC Model Modal */}
-        {showModelModal && (
-          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-2xl font-bold">{program.vlcModel.title}</h3>
-                  <Button variant="ghost" size="icon" onClick={() => setShowModelModal(false)} className="rounded-full">
-                    <X className="h-6 w-6" />
-                  </Button>
-                </div>
-
-                <div className="relative h-[480px] mb-6">
-                  <Image
-                    src={program.vlcModel.image || "/placeholder.svg"}
-                    alt={program.vlcModel.title}
-                    fill
-                    className="object-cover rounded-lg"
-                  />
-                </div>
-                <p className="text-muted-foreground text-lg leading-relaxed">{program.vlcModel.details}</p>
-              </div>
-            </motion.div>
-          </div>
-        )}
+        <Modal
+          isOpen={showModelModal}
+          onClose={() => setShowModelModal(false)}
+          title={program.vlcModel.title}
+          imageSrc={program.vlcModel.image || "/placeholder.svg"}
+          imageAlt={program.vlcModel.title}
+          details={program.vlcModel.details}
+        />
 
         {/* Key Components Modal */}
-        {showComponentsModal && (
-          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-background rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-2xl font-bold">{program.keyComponents.title}</h3>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setShowComponentsModal(false)}
-                    className="rounded-full"
-                  >
-                    <X className="h-6 w-6" />
-                  </Button>
-                </div>
-
-                <div className="relative h-[480px] mb-6">
-                  <Image
-                    src={program.keyComponents.image}
-                    alt={program.keyComponents.title}
-                    fill
-                    className="object-cover rounded-lg"
-                  />
-                </div>
-
-                <p className="text-muted-foreground text-lg leading-relaxed">{program.keyComponents.details}</p>
-              </div>
-            </motion.div>
-          </div>
-        )}
+        <Modal
+          isOpen={showComponentsModal}
+          onClose={() => setShowComponentsModal(false)}
+          title={program.keyComponents.title}
+          imageSrc={program.keyComponents.image}
+          imageAlt={program.keyComponents.title}
+          details={program.keyComponents.details}
+        />
       </div>
     </section>
-  )
-}
+  );
+};
+
+// Enhanced Modal Component with larger images
+const Modal = ({
+  isOpen,
+  onClose,
+  title,
+  imageSrc,
+  imageAlt,
+  details,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  details: string;
+}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-2 sm:p-4">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        className="bg-background rounded-lg w-full max-w-4xl xl:max-w-5xl max-h-[90dvh] overflow-y-auto"
+      >
+        <div className="p-4 sm:p-6">
+          <div className="flex justify-between items-center mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold">{title}</h3>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="rounded-full"
+            >
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
+            </Button>
+          </div>
+
+          {/* Larger image container with aspect ratio */}
+          <div className="relative w-full mb-4 sm:mb-6" style={{ paddingBottom: '56.25%' }}> {/* 16:9 aspect ratio */}
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              className="object-contain rounded-lg"
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 1000px"
+              priority
+            />
+          </div>
+
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed">
+            {details}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const VideoSection = ({ program }: { program: any }) => (
   <section className="py-20 bg-secondary">
